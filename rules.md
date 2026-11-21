@@ -179,44 +179,47 @@ Agilité : 0 (+ 0) --> pts augment le range dmg (3pts == +1 range dmg)
 Intelligence 0 (+ 0) --> pts augment le explosif dmg (3 pts == + 1 pts)
 Chance : 0 (+ 0) --> pts augment nbrs de reroll (2pts == +1 reroll)
 
-============
-Archétype
+### Archétype
+
 (Limite de 1 par tour)
 Choisir 1 parmis les suivants:
-Espion : 1 action  -> 3 (+end modifier) mouvement unrestrain et perd l'aggro pour le tour + prochain tire est silencieux
-Bouncer : 1 action -> Réduit tous les dégâts de 1, +1dmg melee et prend l'aggro pour le tour
-Leader : 1 action -> Permet de donner un action de base gratuit (+ charisme modifier). Range : 4 cases (Mouvement, tire, reload, etc.)
-Pistolero : 1 action -> permet de tirer 2 fois un arme une main  (sur une ou deux cibles). Si les 2 tires touchent, un troisième tire est possible. (pas de limite par tour)
-Sniper : 1 action -> + 3 de Précision et double le dmg son tire (necessite sans aggro) - (Arme single shot seulement)
-Rummager : 1 action -> Permet d'utiliser rummage 1 fois par tour en combat et en cover ou créer un grenade de balles (les stats d'une dynamite) (10 balles) + Permet de lancer 5 x le dé pour trouver des items avec l'action rummage hors combat
-Cowboy : 1 action -> permet de vider complètement 1 revolver avec (- 5) de précision (1 cible possible) - Nécessite une main vide
-Medecin : 1 action -> Heal 4 hp (+ int modifer)  à soi ou un allié en cohésion  & stabiliser un allié lui donne 5 pts de vie au lieu de 1 pts de vie
-Rogue : 1 action -> Double le prochain dégat de melee + dash de 2 mvt(+end modifier) (necessite sans aggro)
-Croupier : 1 pts d'actions -> lance un dé 8 et obtient
-1 : - 1 PA
-2 : - 1 dmg melee et - 1 dmg range
-3 : + 5 de précision
-4 : Régénère 2 pts de vie
-5 : + 4 pts de mouvement ce tour-ci
-6 : + 3 dmg au range ce tour-ci
-7 : + 3 dmg au melee ce tour-ci
-8 : + 2 pts d'actions
+
+**Espion** : 1 action  -> 3 (+end modifier) mouvement unrestrain et perd l'aggro pour le tour + prochain tire est silencieux
+**Bouncer** : 1 action -> Réduit tous les dégâts de 1, +1dmg melee et prend l'aggro pour le tour
+**Leader** : 1 action -> Permet de donner un action de base gratuit (+ charisme modifier). Range : 4 cases (Mouvement, tire, reload, etc.)
+**Pistolero** : 1 action -> permet de tirer 2 fois un arme une main  (sur une ou deux cibles). Si les 2 tires touchent, un troisième tire est possible. (pas de limite par tour)
+**Sniper** : 1 action -> + 3 de Précision et double le dmg son tire (necessite sans aggro) - (Arme single shot seulement)
+**Rummager** : 1 action -> Permet d'utiliser rummage 1 fois par tour en combat et en cover ou créer un grenade de balles (les stats d'une dynamite) (10 balles) + Permet de lancer 5 x le dé pour trouver des items avec l'action rummage hors combat
+**Cowboy** : 1 action -> permet de vider complètement 1 revolver avec (- 5) de précision (1 cible possible) - Nécessite une main vide
+**Medecin** : 1 action -> Heal 4 hp (+ int modifer)  à soi ou un allié en cohésion  & stabiliser un allié lui donne 5 pts de vie au lieu de 1 pts de vie
+**Rogue** : 1 action -> Double le prochain dégat de melee + dash de 2 mvt(+end modifier) (necessite sans aggro)
+**Boxer** : -1 + (+str modifier) dmg sur les poings, permets de faire jusqu'a 3 coups de poings pour 1 actions (les poings font 1dmg pour 2 actions de base) - Nécessite les 2 mains vides pour être actif (Max : 1 fois par tour)
+**Croupier** : 1 pts d'actions -> lance un dé 8 et obtient
+1. - 1 PA
+2. - 1 dmg melee et - 1 dmg range
+3. + 5 de précision
+4. Régénère 2 pts de vie
+5. + 4 pts de mouvement ce tour-ci
+6. + 3 dmg au range ce tour-ci
+7. + 3 dmg au melee ce tour-ci
+8. + 2 pts d'actions
 
 
-Talents
+### Talents
+
 Choisir 1 parmis les suivants:
-Brawler : +0(+str modifier) dmg au melee & reduit de 1 point d'action les armes de melee, peux utiliser ses armes de melee 2 fois (min: 0)
-Paramedic : Augment tout les healing de + 1 pts(+int modifier)  et permet d'utiliser les medkits 2 fois au lieu de une (peut être utiliser sur 2 cibles différente pour la même action).
-Speedster : Permet de charger jusqu'à 3 balles dans n'importe quel chargeur ou fusil pour 1 actions
-Stratège : permet de conserver 1 pts d'action pour en avoir 2 de + au prochain tour s'il n'a pas tout dépenser durant le tour (ex : Roger utilise 2 pts d'action / 3 -> prochain tour il a 5 pts (3pts + 2) d'actions) max : 2 fois par combat.
-EagleEye : 5 case et +, de distance, gagne + 2(+per modifier) de précision et +0(+agi modifier) dmg
-Boxer : -1 + (+str modifier) dmg sur les poings, permets de faire jusqu'a 3 coups de poings pour 1 actions (les poings font 1dmg pour 2 actions de base) - Nécessite les 2 mains vides pour être actif (Max : 1 fois par tour)
-Saper : Permet d'utiliser les explosifs 2 fois au lieu de 1 et +0(+int modifier) dmg sur les explosifs
-Shotgunner : Permet de tirer à +1 case de distance avec un shotgun, + 1dmg au shotgun
-LootGoblin : Permet de relancer le dé de loot sur un ennemi et containers
-PartyAnimal : Toutes les effets de boisson et drogues sont doublé (soi même ou allié)
-DualWield : Permet de diviser par 2 le nbrs de pts d'action de la somme des deux armes (rounded up) et de porter 2 armes à 2 main (- 4 précision par main supplémentaire)
-Clumsy : + 0(+Lck modifier) rerolls + Jet de dé pair pour présicion et raté = + 1 reroll
-Sleight of hands : Permet de déséquiper et équiper une arme pour une action au lieu de 2
-Informant : Pour chaque allié entrer en cohésion durant ton tour, l'allié gagne + 1 dmg range et melee et +1 mvt
-TheSilent: Les tires silencieux font +1(+agi modifier) dmg
+
+**Brawler** : +0(+str modifier) dmg au melee & reduit de 1 point d'action les armes de melee, peux utiliser ses armes de melee 2 fois (min: 0)
+**Paramedic** : Augment tout les healing de + 1 pts(+int modifier)  et permet d'utiliser les medkits 2 fois au lieu de une (peut être utiliser sur 2 cibles différente pour la même action).
+**Speedster** : Permet de charger jusqu'à 3 balles dans n'importe quel chargeur ou fusil pour 1 actions
+**Stratège** : permet de conserver 1 pts d'action pour en avoir 2 de + au prochain tour s'il n'a pas tout dépenser durant le tour (ex : Roger utilise 2 pts d'action / 3 -> prochain tour il a 5 pts (3pts + 2) d'actions) max : 2 fois par combat.
+**EagleEye** : 5 case et +, de distance, gagne + 2(+per modifier) de précision et +0(+agi modifier) dmg
+**Saper** : Permet d'utiliser les explosifs 2 fois au lieu de 1 et +0(+int modifier) dmg sur les explosifs
+**Shotgunner** : Permet de tirer à +1 case de distance avec un shotgun, + 1dmg au shotgun
+**LootGoblin** : Permet de relancer le dé de loot sur un ennemi et containers
+**PartyAnimal** : Toutes les effets de boisson et drogues sont doublé (soi même ou allié)
+**DualWield** : Permet de diviser par 2 le nbrs de pts d'action de la somme des deux armes (rounded up) et de porter 2 armes à 2 main (- 4 précision par main supplémentaire)
+**Clumsy** : + 0(+Lck modifier) rerolls + Jet de dé pair pour présicion et raté = + 1 reroll
+**SleightOfHands** : Permet de déséquiper et équiper une arme pour une action au lieu de 2
+**Informant** : Pour chaque allié entrer en cohésion durant ton tour, l'allié gagne + 1 dmg range et melee et +1 mvt
+**TheSilent**: Les tires silencieux font +1(+agi modifier) dmg
