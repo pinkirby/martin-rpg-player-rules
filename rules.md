@@ -1,10 +1,11 @@
 ## Règle
 
-Début :
-Commence avec 10 $
-Un arme de range (Choix entre : Colt 45, Revolver)
-2 clips et 14 balles
-Un medkit
+### Possesion de départ
+
+- Commence avec 10 $
+- Un arme de range (Choix entre : Colt 45, Revolver)
+- 2 clips et 14 balles
+- Un medkit
 Une arme de melee (Baton, couteau)
 Choix d'un talent et un Achétype
 Commence avec 12 pts à distribuer selon les stats (Charisme, Force, Endurance, etc...)
