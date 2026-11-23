@@ -1,14 +1,4 @@
-## Règle
-
-### Possesion de départ
-
-- Commence avec 10 $
-- Un arme de range (Choix entre : Colt 45, Revolver)
-- 2 clips et 14 balles
-- Un medkit
-Une arme de melee (Baton, couteau)
-Choix d'un talent et un Achétype
-Commence avec 12 pts à distribuer selon les stats (Charisme, Force, Endurance, etc...)
+## Règles
 
 Intéractions hors combat:
 Skill check:
@@ -153,37 +143,91 @@ Ennemi uncommun (chaque joueur lance 1 dé) :
 17-18 : Objet uncommun + 10$
 19-20 : Objet rare + 15$
 
-## Character sheet
+### Création de personnage
 
-Stats
-Pts vie : 10
-Reroll : 1/1 (commence combat toujours avec son max reroll) (ne se régénère pas par tour)
-Nbrs action par tour : 3/3
-Mouvement : 3
-Précision : + 0 --> ajout au dé de précision (base : x > 13 == succés)
-Range : + 0 --> ajout de dégat au range
-Melee : + 0 --> ajout de dégat au melee
-(ex: Roger à 3 regen par tour et qu'il se regenere a 5 hp, le prochain tour il se heal de 1 (3/2 = 1)
+#### Description des statistiques
 
-============
-Caratéristiques
-Une stat max  == 10
+##### Points de vie
+
+Le nombre de points de dégat total qu'un ennemi doit infliger pour que le joueur tombe au combat. Chaque point de dégat encaissé réduit le total de points de vie de 1. Lorsque le nombre de points de vies est inférieur ou égal à 0, le joueur tombe au combat.
+
+##### Relances
+
+Le nombre total de relances de dés avec lequel le joueur commence un combat. Une relance peut être utilisé à chaque fois qu'un dé est lancé pour rejouer le dé et changer sa valeur immédiatement. Chaque utilisation d'une relance reduit son total de relances par 1. Lorsque le total de relance est à 0, il n'est plus possible de rejouer le dé.
+
+##### Points de mouvements
+
+Le nombre total de déplacements qu'un joueur peut faire lors d'un tour. Un déplacement correspond à se déplacer sur une case adjacente sur la grille de jeu.
+
+##### Précision
+
+La précision dicte la difficulté à toucher une cible au combat. Avec une précison nulle (0) il est impossible de toucher une cible. Chaque points en précision augmente le nombre de faces du dé qui correspondent à un succès, i.e une cible atteinte. Par exemple, un joueur avec 5 de précision possède 5 faces succès (20, 19, 18, 17, 16) et 15 faces d'échec (toutes les faces inférieures à 16).
+
+#### Statistiques de base
+
+Le tableau suivant indique la valeur maximale de base pour chacune des statistiques du joueur.
+
+| Statistique          | Valeur |
+|----------------------|--------|
+| Points de vie        | 10     |
+| Relances             | 1      |
+| Points de mouvement  | 3      |
+| Précision            | 7      |
+
+#### Possessions de départ
+
+- Commence avec 10 $
+- Une arme à distance (Choix entre : Colt 45, Revolver)
+- Une arme de melee (Baton, couteau)
+- 2 chargeur remplis (6 balles chacun)
+- Un medkit
+
+#### Choix d'identité
+- 1 Archétype
+- 1 Talent
+- 12 points de caractéristiques à attibuer
+
+#### Caratéristiques
+
+Les valeurs d'une caractéristique ne peut qu'être comprise en 0 et 10.
 
 (Chaque 5 pts d'une stat augmente la valeur de 1 sur un résultat de difficulté check
 ex : Roger à 10 de force, le DC est de 10. Roger obtient 9 sur son dé. Donc 9 + (10 / 5) = 11, succès !!)
 
-Charisme : 0 (+ 0) --> pts diminu le prix des vendeur (2pts == -1 $ et +1 $ sur la vente seulement sur les objets) (min: 1$) (A chaques threshold de charisme == 5 balles gratuites balles)
-Perception : 0 (+ 0)  pts augmente la précision (2pts == +1 Précision)
-Endurance : 0 (+ 0) pts augmente les hp et le mouvement (2pts == +1 hp & 3pts == +1 mouvement)
-Force : 0 (+ 0) --> pts augment le melee dmg (3pts == +1 melee dmg)
-Agilité : 0 (+ 0) --> pts augment le range dmg (3pts == +1 range dmg)
-Intelligence 0 (+ 0) --> pts augment le explosif dmg (3 pts == + 1 pts)
-Chance : 0 (+ 0) --> pts augment nbrs de reroll (2pts == +1 reroll)
+##### Force (STR)
 
-### Archétype
+- Augmente de 1 le nombre de dégats infligés pour chacune attaque au corps à corps effectué pour chaque point attribué
 
-(Limite de 1 par tour)
-Choisir 1 parmis les suivants:
+##### Perception (PER)
+
+- Augmente de (PER // 2) la précision du joueur
+
+##### Endurance (END)
+
+- Augmente de 1 le maximum total de points de vie pour chaque point attribué
+- Augmente de (END // 3) les points de mouvement 
+
+##### Charisme (CHR)
+
+- Réduit la valeur de 1$ pour l'achat d'un objet pour chaque point attribué (pour un minimum possible de 1$ par objet)
+- Chaque marchant rencontré offre (1 + CHR // 2) balles ou (CHR // 5)$ gratuitement
+- Augmente la valeur de revente de chaque objet possédé
+
+##### Intelligence (INT)
+
+- Augmente de 1 le nombre de dégats infligé par les explosifs pour chaque point attribué 
+
+##### Agilité (AGI)
+
+- Augmente de 1 le nombre de dégats infligé par les armes à distance pour chaque point attribué 
+
+##### Chance (LCK)
+
+- Augmente de (LCK // 2) le nombre maximal de relances du joueur
+
+#### Archétypes
+
+Un archétype offre l'option d'une action spéciale exclusive utilisable une seule fois par tour (sauf si contre-indiqué).
 
 **Espion** : 1 action  -> 3 (+end modifier) mouvement unrestrain et perd l'aggro pour le tour + prochain tire est silencieux
 **Bouncer** : 1 action -> Réduit tous les dégâts de 1, +1dmg melee et prend l'aggro pour le tour
