@@ -82,10 +82,10 @@ Tap l'arme
 Utilise le nombre d'action inscrit sur l'arme
 Jet de dé pour précision (s'applique au melee et range) = x > 13 pour succés (1 == Toujours raté) (20 == Double dmg)
 Recharger
-Si arme de type revolver : 1 balles recharger = 1 action
+Si arme de type revolver : 2 + (LCK // 4) balles recharger = 1 action
 Cependant, le revolver peut utiliser 1 action pour choisir la balle dans le baril
 Si arme de type Colt : 1 clip = 1 action, Cependant :
-Si le clip est vide, 1 action = 1 balle recharger dans le clip
+Si le clip est vide, 1 action = 2 + (LCK // 4) balle recharger dans le clip
 Bouger : permet d'utiliser tout sont mouvement ou partiellement
 Équiper ou déséquiper une arme
 Utiliser un objet de son sac (Utilise le nombre d'action inscrit sur l'objet)
@@ -265,7 +265,7 @@ Le card dealer n'a pas d'action spéciale. À la place, au début de son tour. L
 1. Réduit le total de points d'action disponibles de 1
 2. Réduit de 3 - (LCK // 4) les points de dégats infligés pour chacune des attaques
 3. Augmente la précision du joueur de 2 + (LCK // 3)
-4. Restore soi-même de 2 + (LCK // 3)
+4. Restore soi-même de 2 + (LCK // 3) points de vie
 5. Augmente de 2 + (LCK // 4) maximum points de mouvements
 6. Augmente de 1 + (LCK // 4) les points de dégats infligés par les armes au corps à corps et au poings
 7. Augmente de 1 + (LCK // 4) les points de dégats infligés par les armes à distance
