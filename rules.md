@@ -95,6 +95,11 @@ Stabiliser un allié (relève automatiquement un allié à 1 pts de vie)
 Action contextuel ( incluant la créativité du joueur )
 perdre l'aggro
 desengager 1 fois par tour
+lancer un objet
+consommer un objet
+Faire consommer un objet en sa possession à un allié adjacent
+donner un objet a un allié adjacent
+prendre un objet a un allié adjacent
 
 Loot
 Container commun:
@@ -234,7 +239,8 @@ ex : Roger à 10 de force, le DC est de 10. Roger obtient 9 sur son dé. Donc 9 
 
 - Augmente de (LCK // 2) le nombre maximal de relances du joueur
 
-#### Archétypes
+Archétypes
+---
 
 Un archétype offre l'option d'une action spéciale exclusive utilisable une seule fois par tour (sauf si contre-indiqué).
 
@@ -242,11 +248,11 @@ Un archétype offre l'option d'une action spéciale exclusive utilisable une seu
 
 L'action spéciale:
 - Provoque la reduction de 1 + (END // 4) des dégats infligés par les ennemis jusqu'au prochain tour du joueur 
-- Force les ennemis à 3 cases ou moins de distance d'engager le joueur si possible
+- Force les ennemis à 1 + (CHR // 3)  cases ou moins de distance d'engager le joueur si possible
 
 ##### Boxer
 
-Le boxer peut donner un coup de poing pour une seule action au lieu de 2. Le boxeur doit avoir les deux mains vide pour pouvoir utiliser son action spéciale.
+Le boxeur doit avoir les deux mains vide pour pouvoir utiliser son action spéciale.
 
 L'action spéciale:
 - Attaque 2 + (STR // 4) fois une cible à portée avec les poings.
@@ -258,17 +264,23 @@ Le brawler peut toujours, avec une action, choisir d'attaquer avec deux armes au
 L'action spéciale:
 - Attaque 2 fois en tout avec n'importe quelle combinaison d'armes au corps à corps, à une main et équipées sans engager les armes utilisés ainsi. Si les deux attaques ainsi effectuées touchent la cible, alors une troisième attaque avec une arme au corps à corps, à une main et équipées est possible toujours sans engager l'arme utilisé
 
+##### Bully
+
+L'action spéciale:
+- Rend 1 + (CHR // 6) cibles pacifique et immobile dans un rayon de 1 + (CHR // 2) cases jusqu'au prochain tour du bully. Les alliés dans un rayon de 1 + (CHR // 3) cases augmentent leur précision de 1 + (CHR // 4) contre les cibles ennemis atteintes par l'action spéciale du bully.
+
+
 ##### Card Dealer
 
-Le card dealer n'a pas d'action spéciale. À la place, au début de son tour. Le joueur decide s'il souhaite lancer un dé 8. S'il décide de le faire, en fonction du résultat, le card dealer obtient le bonus/malus suivant pour le tour actif:
+Le card dealer n'a pas d'action spéciale. À la place, au début de son tour, le joueur decide s'il souhaite lancer un dé 8. S'il décide de le faire, en fonction du résultat, le card dealer obtient le bonus/malus ci-dessous pour le tour actif. Les relances sont possible pour ce dé.
 
 1. Réduit le total de points d'action disponibles de 1
 2. Réduit de 3 - (LCK // 4) les points de dégats infligés pour chacune des attaques
 3. Augmente la précision du joueur de 2 + (LCK // 3)
 4. Restore soi-même de 2 + (LCK // 3) points de vie
 5. Augmente de 2 + (LCK // 4) maximum points de mouvements
-6. Augmente de 1 + (LCK // 4) les points de dégats infligés par les armes au corps à corps et aux poings
-7. Augmente de 1 + (LCK // 4) les points de dégats infligés par les armes à distance
+6. Augmente de 1 + (LCK // 3) les points de dégats infligés par les armes au corps à corps et aux poings
+7. Augmente de 1 + (LCK // 3) les points de dégats infligés par les armes à distance
 8. Augmente le total de points d'action disponibles de 1 et augmente de 1 + (LCK // 4) les points de dégats infligés par les explosifs
 
 ##### Cowboy
@@ -276,19 +288,30 @@ Le card dealer n'a pas d'action spéciale. À la place, au début de son tour. L
 Le cowboy peut se déséquiper d'une arme à une main et équiper l'autre main d'une autre arme à une main en une seule action plutôt que 2. Le cowboy doit avoir une main vide pour pouvoir utiliser son action spéciale.
 
 L'action spéciale:
-- Attaque une même cible avec une arme à une main ayant un barillet jusqu'à 2 + (AGI // 3) fois ou jusqu'à ce que le chargeur soit vide. Chaque attaque ainsi faite a un malus de 6 - (PER // 3) de précision 
+- Attaque une même cible avec une arme à une main ayant un barillet jusqu'à 2 + (AGI // 4) fois ou jusqu'à ce que le chargeur soit vide. Chaque attaque ainsi faite a un malus de 6 - (PER // 3) de précision
 
 ##### Leader
 
 L'action spéciale:
-- Donne une action non hostile à un joueur à une distance maximale de 1 + (CHR // 2) cases  
+- Donne une action standard à 1 + (CHR // 6) joueurs dans un rayon de 1 + (CHR // 2) cases
 
 ##### Medic
 
-Le medic restaure 1 + (INT // 2) points de vie en stabilisant un allié plutôt qu'un seul.
+L'action spéciale:
+- Stabiliser un allié
+- Donner 1 + (INT // 2) points de vie a cet allié
+
+ou
+
+- Convertir un medkit en pistolet regénérateur
+- Tirer le pistolet sur une cible allié. Un jet de précision est nécessaire pour atteindre la cible
+- Une cible atteinte regagne les points de vie donné par un un medkit standard + (1 + INT // 2) points de vie
+
+##### Professional Pitcher
 
 L'action spéciale:
-- Restaure de 4 + (INT // 3) points de vie à soi-même ou à un allié adjacent
+- Équipe jusqu'à un objet dans chaque main libre
+- Lance un objet avec une portée accrue de 1 + (LCK // 3) cases
 
 ##### Pistolero
 
@@ -307,7 +330,7 @@ L'action spéciale:
 
 ##### Rummager
 
-Hors combat, le rummager peut faire l'action de rummage jusqu'à 1 + (LCK // 2) fois entre repos court au lieu d'une seule. 
+Hors combat, le rummager peut faire l'action de fouiller jusqu'à 1 + (LCK // 2) fois entre chaque repos court au lieu d'une seule. 
 
 L'action spéciale:
 - Fait l'action de fouiller durant le combat à condition d'être à couvert.
@@ -321,17 +344,18 @@ ou
 Le sniper doit ne pas être engagé et ne doit pas avoir l'aggro pour pouvoir utiliser son action spéciale.
 
 L'action spéciale:
-- Attaque avec une arme à un coup (Single shot) et donne un bonus de +(PER // 3) de précision temporaire pour l'attaque et assure un coup critique de l'attaque si cette dernière touche la cible
+- Attaque avec une arme à un coup (Single shot) et donne un bonus de 1 + (PER // 4) de précision temporaire pour l'attaque et assure un coup critique de l'attaque si cette dernière touche la cible
 
 ##### Spy
 
 L'action spéciale:
 - Provoque la perte de l'engagement des ennemis adjacents
-- Donne une action de mouvement gratuite
+- Donne une action de mouvement gratuite immédiatemment, i.e. le joueur peut bouger de 3 + (END // 3) cases.
 - Provoque perte du l'aggro pour le tour
 - Rend la prochaine attaque est silencieuse, i.e. ne provoque pas l'aggro des ennemis
 
-#### Talents
+Talents
+---
 
 ##### Retaliator
 
@@ -341,6 +365,9 @@ La première fois qu'un joueur se fait attaquer par un ennemi engagé, il peut e
 
 Lorsque qu'un ennemi se désengage du joueur, ce dernier peut faire une action d'attaque avec une arme au corps à corps disponible même si l'arme est engagée ou avec son poing s'il est disponible.
 
+##### Maniac
+
+Lorsqu'un joueur attaque avec une arme au corps à corps à 2 mains, Il peut attaquer jusqu'à 1 + (STR // 4) cibles supplémentaires à portée.
 
 ##### Strategist
 
@@ -348,35 +375,39 @@ Lorsqu'un joueur terminer son tour avec au moins 1 points d'action disponible et
 
 ##### Fast Fingers
 
-Lorsqu'un chargeur est vide, permet de faire une action de recharge gratuite.
+Lorsqu'un chargeur ou barillet est vide, permet de faire une action de recharge gratuite immédiatemment.
 
 ##### Eagle Eye
 
 Les attaques à 5 case de distance ou plus on 2 + (PER // 3) de precision et rend l'ennemi atteint déstabilisé (perd des stats)
 
-##### Demolitionist
+##### Rocket Scientist
 
-Augmente le rayon d'explosion des explosifs de 1 + (INT // 4) et lorsqu'il aquiert un ou des explosifs.
+Augmente le rayon d'impact des explosifs de 1 + (INT // 4). Le joueurs et tous les alliés sont immunisés au explosifs durant le tour du joueur. Lorsque le joueur obtient un ou des explosifs, le joueur en reçoit le double à la place.
 
-##### Shotgunner
+##### Short Sighted
 
-Les shotguns on une portée augmenté de 1 + (PER // 4). Les points de dégats infligés par attaques au shotgun sont augmentés de 1 + (AGI // 4).
+Les armes à distance peuvent atteindre les cibles ennemies adjacentes. Lorsque le joueur cible un ennemi avec une arme à distance dans un rayon de 2 + (PER // 4) cases ou moins, il peut attaquer immédiatemment une cible à portée. 
 
 ##### Loot Goblin
 
-Permet de effectué un fouille 1 + (LCK // 4) fois supplémentaire lors d'une fouille.
+Permet de effectué un piller 1 + (LCK // 4) fois supplémentaire lors d'une pille.
 
 ##### Party Animal
 
-Les bonus obtenus par les boissons et drogues consommés ou offert à un allié sont doublés. 
+Les bonus obtenus par les boissons et drogues consommés ou offert à un allié sont doublés. Lorsqu'une boisson ou drogue est obtenu, le joueur en reçoit le double à la place.
+
+##### Overconfident
+
+Permet de porter n'importe quel arme dans une seule main. si l'arme nécessite 2 main normalement, la précision de l'arme est réduite de 5 - (PER // 4).
 
 ##### Dual Wielder
 
-Permet de porter n'importe quel arme dans une seule main. si l'arme nécessite 2 main normalement, la précision de l'arme est réduite de 4 - (PER // 4). Une action de recharge en effectue une pour chaque arme équipée. une action d'attaque est suffisante pour attaquer avec chaque arme équipée.
+Chaque action de recharge en effectue une pour chaque arme équipée. Une action d'attaque est suffisante pour attaquer avec chaque arme équipée.
 
-##### Versatile
+##### Skillful
 
-Lorsqu'une arme de corps à corps et une arme à distance sont équipées, les deux armes ont une portée accrues de 1 + (AGI // 4) cases.  une action d'attaque est suffisante pour attaquer avec chaque arme équipée.
+Lorsqu'un joueur attaque avec deux types d'armes différentes dans un même tour (Pour rappel, les types d'armes sont: corps à corps, à distance et explosifs), le joueur obtient une action supplémentaire ce tour-ci et le joueur inflige 1 + (LCK // 3) sur les types encore inutilisé ce tour-ci. 
 
 ##### Clumsy 
 
@@ -388,12 +419,25 @@ Il est possible pour le joueur de déséquiper et équiper une arme pour une act
 
 ##### Informant
 
-Lorsqu'un allié devient adjacent au joueur du le tour de ce dernier, l'allié gagne 1 + (CHR // 6) points de mouvement et inflige (CHR // 3) dégat sur sa prochaine attaque.
+Lorsqu'un allié devient adjacent au joueur du le tour de ce dernier, l'allié gagne 1 + (CHR // 6) points de mouvement supplémentaire à son prochain tour et inflige 1 + (CHR // 3) dégats supplémentaires sur sa prochaine attaque.
 
 ##### Silent
 
-Lorsque le joueur n'a pas l'aggro, les attaques inflige 1 + (AGI // 3)
+Lorsque le joueur n'a pas l'aggro, les attaques silencieuses inflige le double de dégats.
 
-##### Paramedic
+##### Secourist
 
-Lorsqu'un allié a moins de la moitié de ses points de vie maximums, le joueur obtient 2 + (END // 3) points de mouvements supplémentaires pour le tour. Les medkits restaure 2 + (INT // 3) points de vie supplémentaires et le prochain medkit utilisé n'est pas retiré de l'inventaire.
+Lorsqu'un allié a moins de la moitié de son maximum de points de vie, le joueur obtient 2 + (END // 3) points de mouvements supplémentaires et gagne \[2 + PER // 3\] précision pour le tour. Les effets des medkits sont doublés. Le prochain medkit perdu n'est pas retiré de l'inventaire.
+
+##### Lucky Bastard
+
+Le nombre de faces sur le dé provoquants un coups critiques est augmenté de 1 + (LCK // 6). Par exemple, avec 7 points de caractéristique en chance, les coups critiques sont provoqué avec les faces 18, 19 et 20. 
+
+##### Quick Pocket
+
+Le joueur obtient une main supplémentaire utilisable exclusivement pour lancer des objets. Cette main supplémentaire ne peut pas équiper d'arme. Cette main peut équiper un explosif. Le joueur peut effectuer gratuitement jusqu'à une action par tour parmi les choix suivant:
+- Utiliser un objet consommable sur soi-même
+- Utiliser un objet consommable sur un allié adjacent
+- Donner un objet à un allié adjacent
+
+
