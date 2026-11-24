@@ -396,4 +396,4 @@ Lorsque le joueur n'a pas l'aggro, les attaques inflige 1 + (AGI // 3)
 
 ##### Paramedic
 
-Lorsqu'un allié a moins de la moitié de ses points de vie maximums, le joueur obtient 2 + (END // 3) points de mouvements supplémentaires pour le tour. Les medkits restaure 2 + (INT // 3)
+Lorsqu'un allié a moins de la moitié de ses points de vie maximums, le joueur obtient 2 + (END // 3) points de mouvements supplémentaires pour le tour. Les medkits restaure 2 + (INT // 3) points de vie supplémentaires et le prochain medkit utilisé n'est pas retiré de l'inventaire.
