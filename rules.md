@@ -249,7 +249,7 @@ L'action spéciale:
 Le boxer peut donner un coup de poing pour une seule action au lieu de 2. Le boxeur doit avoir les deux mains vide pour pouvoir utiliser son action spéciale.
 
 L'action spéciale:
-- Attaque 2 + (AGI // 4) fois une cible à portée avec les poings.
+- Attaque 2 + (STR // 4) fois une cible à portée avec les poings.
 
 ##### Brawler
 
@@ -267,7 +267,7 @@ Le card dealer n'a pas d'action spéciale. À la place, au début de son tour. L
 3. Augmente la précision du joueur de 2 + (LCK // 3)
 4. Restore soi-même de 2 + (LCK // 3) points de vie
 5. Augmente de 2 + (LCK // 4) maximum points de mouvements
-6. Augmente de 1 + (LCK // 4) les points de dégats infligés par les armes au corps à corps et au poings
+6. Augmente de 1 + (LCK // 4) les points de dégats infligés par les armes au corps à corps et aux poings
 7. Augmente de 1 + (LCK // 4) les points de dégats infligés par les armes à distance
 8. Augmente le total de points d'action disponibles de 1 et augmente de 1 + (LCK // 4) les points de dégats infligés par les explosifs
 
@@ -281,7 +281,7 @@ L'action spéciale:
 ##### Leader
 
 L'action spéciale:
-- Donne une action non hostile à un joueur à une distance maximale de (CHR // 2) cases  
+- Donne une action non hostile à un joueur à une distance maximale de 1 + (CHR // 2) cases  
 
 ##### Medic
 
