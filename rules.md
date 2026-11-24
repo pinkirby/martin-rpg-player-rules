@@ -152,9 +152,17 @@ Ennemi uncommun (chaque joueur lance 1 dé) :
 17-18 : Objet uncommun + 10$
 19-20 : Objet rare + 15$
 
-### Création de personnage
+## Création de personnage
 
-#### Description des statistiques
+Chaque joueur doit faire les 3 choix suivant pour creer son personnage:
+
+- 12 points à distribuer dans les différentes caractéristiques 
+- 1 Archétype
+- 1 Talent
+
+
+Description des statistiques
+---
 
 ##### Points de vie
 
@@ -188,7 +196,8 @@ Le tableau suivant indique la valeur maximale de base pour chacune des statistiq
 | Points de mouvement  | 3      |
 | Précision            | 7      |
 
-#### Possessions de départ
+Possessions de départ
+---
 
 - Commence avec 10 $
 - Une arme à distance (Choix entre : Colt 45, Revolver)
@@ -196,12 +205,8 @@ Le tableau suivant indique la valeur maximale de base pour chacune des statistiq
 - 2 chargeur remplis (6 balles chacun)
 - Un medkit
 
-#### Choix d'identité
-- 1 Archétype
-- 1 Talent
-- 12 points de caractéristiques à attibuer
-
-#### Caratéristiques
+Caratéristiques
+---
 
 Les valeurs d'une caractéristique ne peut qu'être comprise en 0 et 10.
 
