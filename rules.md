@@ -55,10 +55,7 @@ Possessions de départ
 Caratéristiques
 ---
 
-Les valeurs d'une caractéristique ne peut qu'être comprise en 0 et 10. 
-
-(Chaque 5 pts d'une stat augmente la valeur de 1 sur un résultat de difficulté check
-ex : Roger à 10 de force, le DC est de 10. Roger obtient 9 sur son dé. Donc 9 + (10 / 5) = 11, succès !!)
+Les valeurs d'une caractéristique ne peut qu'être comprise en 0 et 10. Chaque points investi caractéristique réduit la difficulté des tests d'abilité (voir la section sur les tests d'abilité). Voici les avantages que chaque caractéristique confère.
 
 ##### Force (STR)
 
@@ -299,12 +296,17 @@ Hors combat
 
 ### Tests d'abilité (skill check)
 
+Le DM peut être amené à demander à un joueur de faire un test d'abilité dépendant de l'action du joueur. Le DM choisit la charactéristique qui sera testé et la difficulté du test. Voici une charte du résultat minimal nécessaire en fonction de la difficulté du test:
 
-Skill check:
-Si le DM dit facile = x > 5 sur le dé
-Si le DM dit normal = x > 10  sur le dé
-Si le DM dit difficile = x > 15 sur le dé
-Si le DM dit impossible = 20 sur le dé - Sans aucun bonus
+| Difficulté | Minimum requis |
+|------------|----------------|
+| Facile     | 6              |
+| Moyen      | 11             |
+| Difficile  | 16             |
+| Impossible | 20             |
+
+Le résultat minimal nécessaire du dé est reduit selon les points investi d'un joueur dans une charactéristique. La réduction du minimum requis du dé varie selon la formule suivante \[ Caractéristique // 4 \]. Par exemple, si le DM choisit un test de force avec une difficulté moyenne et le joueur a 6 point en force alors le minimum requis pour ce test sera $ 11 - \floor{ STR / 4 } = 11 - 1 = 10 $. Un test impossible ne peut pas être réduit.
+
 Short rest : Récupère 3 pts de vie (Repos court seulement disponible 1 fois après combat)
 Long rest : Récupère 10 pts de vie (Repos long seulement disponible au motel)
 
