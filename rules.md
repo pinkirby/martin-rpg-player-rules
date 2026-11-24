@@ -152,7 +152,7 @@ Ennemi uncommun (chaque joueur lance 1 dé) :
 17-18 : Objet uncommun + 10$
 19-20 : Objet rare + 15$
 
-## Création de personnage
+# Création de personnage
 
 Chaque joueur doit faire les 3 choix suivant pour creer son personnage:
 
