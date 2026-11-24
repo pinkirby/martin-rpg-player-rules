@@ -305,7 +305,7 @@ Le DM peut être amené à demander à un joueur de faire un test d'abilité dé
 | Difficile  | 16             |
 | Impossible | 20             |
 
-Le résultat minimal nécessaire du dé est reduit selon les points investi d'un joueur dans une charactéristique. La réduction du minimum requis du dé varie selon la formule suivante \[ Caractéristique // 4 \]. Par exemple, si le DM choisit un test de force avec une difficulté moyenne et le joueur a 6 point en force alors le minimum requis pour ce test sera $11 - \floor{ STR / 4 } = 11 - 1 = 10$. Un test impossible ne peut pas être réduit.
+Le résultat minimal nécessaire du dé est reduit selon les points investi d'un joueur dans une charactéristique. La réduction du minimum requis du dé varie selon la formule suivante \[ Caractéristique // 4 \]. Par exemple, si le DM choisit un test de force avec une difficulté moyenne et le joueur a 6 point en force alors le minimum requis pour ce test sera $11 - \lfloor STR / 4 \rfloor = 11 - 1 = 10$. Un test impossible ne peut pas être réduit.
 
 Short rest : Récupère 3 pts de vie (Repos court seulement disponible 1 fois après combat)
 Long rest : Récupère 10 pts de vie (Repos long seulement disponible au motel)
