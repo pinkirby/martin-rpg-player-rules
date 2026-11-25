@@ -73,7 +73,7 @@ Les valeurs d'une caractéristique ne peut qu'être comprise en 0 et 10. Chaque 
 ##### Charisme (CHR)
 
 - Réduit la valeur de 1$ pour l'achat d'un objet pour chaque point attribué (pour un minimum possible de 1$ par objet)
-- Chaque marchant rencontré offre (1 + CHR // 2) balles ou (CHR // 5)$ gratuitement
+- Chaque marchant rencontré offre (1 + CHR // 2) balles ou (CHR // 4)$ gratuitement
 - Augmente la valeur de revente de chaque objet possédé
 
 ##### Intelligence (INT)
@@ -97,21 +97,19 @@ Un archétype offre l'option d'une action spéciale exclusive utilisable une seu
 
 L'action spéciale:
 - Provoque la reduction de 1 + (END // 4) des dégats infligés par les ennemis jusqu'au prochain tour du joueur 
-- Force les ennemis à 1 + (CHR // 3)  cases ou moins de distance d'engager le joueur si possible
+- Force les ennemis à 1 + (CHR // 3)  cases ou moins de distance d'engager le bouncer si possible
 
 ##### Boxer
 
 Le boxeur doit avoir les deux mains vide pour pouvoir utiliser son action spéciale.
 
 L'action spéciale:
-- Attaque 2 + (STR // 4) fois une cible à portée avec les poings.
+- Attaque une même cible jusqu'à \[4 + STR // 4\] fois ou jusqu'à ce que le chargeur soit vide. Chaque attaque faite réduit la précision du boxeur de 1 pour toutes les attaques subséquentes durant cette action spéciale 
 
 ##### Brawler
 
-Le brawler peut toujours, avec une action, choisir d'attaquer avec deux armes au corps à corps, à une main et équipées, par ailleurs les deux attaques doivent toucher leur cible pour que l'ennemi ciblé se fasse infliger des points de dégat.
-
 L'action spéciale:
-- Attaque 2 fois en tout avec n'importe quelle combinaison d'armes au corps à corps, à une main et équipées sans engager les armes utilisés ainsi. Si les deux attaques ainsi effectuées touchent la cible, alors une troisième attaque avec une arme au corps à corps, à une main et équipées est possible toujours sans engager l'arme utilisé
+- Attaque 2 fois avec une arme au corps à corps équipées sans engager l'arme utilisés ainsi.
 
 ##### Bully
 
@@ -134,15 +132,24 @@ Le card dealer n'a pas d'action spéciale. À la place, au début de son tour, l
 
 ##### Cowboy
 
-Le cowboy peut se déséquiper d'une arme à une main et équiper l'autre main d'une autre arme à une main en une seule action plutôt que 2. Le cowboy doit avoir une main vide pour pouvoir utiliser son action spéciale.
+Le cowboy doit avoir une main vide et une main équipée d'un arme avec barillet pour pouvoir utiliser son action spéciale.
 
 L'action spéciale:
-- Attaque une même cible avec une arme à une main ayant un barillet jusqu'à 2 + (AGI // 4) fois ou jusqu'à ce que le chargeur soit vide. Chaque attaque ainsi faite a un malus de 6 - (PER // 3) de précision
+- Attaque une même cible jusqu'à \[4 + AGI // 4\] fois ou jusqu'à ce que le chargeur soit vide. Chaque attaque faite réduit la précision du boxeur de 1 pour toutes les attaques subséquentes dans ce barillet
+
+##### Hitman 
+
+L'action spéciale:
+- Recharge 2 armes équipées
+
+ou
+
+- Attaque avec chacune des armes équipées 
 
 ##### Leader
 
 L'action spéciale:
-- Donne une action standard à 1 + (CHR // 6) joueurs dans un rayon de 1 + (CHR // 2) cases
+- Donne une action standard à 2 alliés dans un rayon de 1 + (CHR // 2) cases
 
 ##### Medic
 
@@ -159,15 +166,8 @@ ou
 ##### Professional Pitcher
 
 L'action spéciale:
-- Équipe jusqu'à un objet dans chaque main libre
+- Équipe jusqu'à un objet dans 2 main libre
 - Lance un objet avec une portée accrue de 1 + (LCK // 3) cases
-
-##### Pistolero
-
-Le pistolero peut toujours, avec une action, choisir d'attaquer avec deux armes à distance, à une main et équipées, par ailleurs les deux attaques doivent toucher leur cible pour que l'ennemi ciblé se fasse infliger des points de dégat.
-
-L'action spéciale:
-- Attaque 2 fois en tout avec n'importe quelle combinaison d'armes à distance, à une main et équipées sans engager les armes utilisés ainsi. Si les deux attaques ainsi effectuées touchent la cible, alors une troisième attaque avec une arme à distance, à une main et équipées est possible toujours sans engager l'arme utilisé
 
 ##### Rogue
 
@@ -250,13 +250,9 @@ Les bonus obtenus par les boissons et drogues consommés ou offert à un allié 
 
 Permet de porter n'importe quel arme dans une seule main. si l'arme nécessite 2 main normalement, la précision de l'arme est réduite de 5 - (PER // 4).
 
-##### Dual Wielder
-
-Chaque action de recharge en effectue une pour chaque arme équipée. Une action d'attaque est suffisante pour attaquer avec chaque arme équipée.
-
 ##### Skillful
 
-Lorsqu'un joueur attaque avec deux types d'armes différentes dans un même tour (Pour rappel, les types d'armes sont: corps à corps, à distance et explosifs), le joueur obtient une action supplémentaire ce tour-ci et le joueur inflige 1 + (LCK // 3) sur les types encore inutilisé ce tour-ci. 
+Lorsqu'un joueur attaque avec deux types d'armes différentes dans un même tour (Pour rappel, les types d'armes sont: corps à corps, à distance et explosifs), le joueur obtient une action supplémentaire ce tour-ci et le joueur inflige 1 + (LCK // 3) dégats supplémentaire sur la prochaine attaque du type encore inutilisé. 
 
 ##### Clumsy 
 
@@ -305,7 +301,15 @@ Le DM peut être amené à demander à un joueur de faire un test d'abilité dé
 | Difficile  | 16             |
 | Impossible | 20             |
 
-Le résultat minimal nécessaire du dé est reduit selon les points investi d'un joueur dans une charactéristique. La réduction du minimum requis du dé varie selon la formule suivante \[ Caractéristique // 4 \]. Par exemple, si le DM choisit un test de force avec une difficulté moyenne et le joueur a 6 point en force alors le minimum requis pour ce test sera $11 - \lfloor STR / 4 \rfloor = 11 - 1 = 10$. Un test impossible ne peut pas être réduit.
+Le résultat minimal nécessaire du dé est reduit selon les points investi d'un joueur dans une charactéristique. La réduction du minimum requis du dé varie selon la formule suivante \[ Caractéristique // 4 \]. Par exemple, si le DM choisit un test de force avec une difficulté moyenne et le joueur a 6 point en force alors le minimum requis pour ce test sera $11 - \lfloor 6 / 4 \rfloor = 11 - 1 = 10$. Un test impossible ne peut pas être réduit.
+
+### Repos
+
+##### Repos court
+
+Les joueurs peuvent décider de faire un repos court si le DM le permet. Chaque joueur regagne 
+
+##### Repos long
 
 Short rest : Récupère 3 pts de vie (Repos court seulement disponible 1 fois après combat)
 Long rest : Récupère 10 pts de vie (Repos long seulement disponible au motel)
@@ -453,3 +457,6 @@ Ennemi uncommun (chaque joueur lance 1 dé) :
 17-18 : Objet uncommun + 10$
 19-20 : Objet rare + 15$
 
+attaque melee toujours silencieuse
+engager une arme
+engager un ennemi
