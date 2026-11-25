@@ -200,7 +200,7 @@ L'action spéciale:
 L'action spéciale:
 - Provoque la perte de l'engagement des ennemis adjacents
 - Donne une action de mouvement gratuite immédiatemment, i.e. le joueur peut bouger de 3 + (END // 3) cases.
-- Provoque perte du l'aggro pour le tour
+- Provoque perte de l'aggro pour le tour
 - Rend la prochaine attaque est silencieuse, i.e. ne provoque pas l'aggro des ennemis
 
 Talents
@@ -268,7 +268,7 @@ Lorsqu'un allié devient adjacent au joueur du le tour de ce dernier, l'allié g
 
 ##### Silent
 
-Lorsque le joueur n'a pas l'aggro, les attaques silencieuses inflige le double de dégats.
+Lorsque le joueur perd l'aggro, la première prochaine attaque inflige le double de dégats.
 
 ##### Secourist
 
@@ -460,3 +460,4 @@ Ennemi uncommun (chaque joueur lance 1 dé) :
 attaque melee toujours silencieuse
 engager une arme
 engager un ennemi
+precision corps a corps
