@@ -272,7 +272,7 @@ Lorsque le joueur perd l'aggro, la première prochaine attaque inflige le double
 
 ##### Secourist
 
-Lorsqu'un allié a moins de la moitié de son maximum de points de vie, le joueur obtient 2 + (END // 3) points de mouvements supplémentaires et gagne \[2 + PER // 3\] précision pour le tour. Les effets des medkits sont doublés. Le prochain medkit perdu n'est pas retiré de l'inventaire.
+Lorsqu'un allié a moins de la moitié de son maximum de points de vie, le joueur obtient 2 + (END // 3) points de mouvements supplémentaires et gagne \[ 2 + PER // 3 \] précision pour le tour. Les effets des medkits sont doublés. Le prochain medkit perdu n'est pas retiré de l'inventaire.
 
 ##### Lucky Bastard
 
@@ -461,3 +461,11 @@ attaque melee toujours silencieuse
 engager une arme
 engager un ennemi
 precision corps a corps
+leader 1 pour 1
+bully immobiliser, prend un de ou est destabiliser
+brawler pour range
+range peut pas taper en melee
+sleight of hand recharge plus
+informant pas plus quun buff par joueur
+la prochaine attaque silencieuse est double, silent
+melee plus de precision
