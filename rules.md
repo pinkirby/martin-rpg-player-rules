@@ -17,7 +17,7 @@ Chaque joueur doit faire les **3 choix** suivants pour créer son personnage :
 | **Points de vie** | Nombre de points de dégâts total qu'un ennemi doit infliger pour que le joueur tombe au combat. Chaque point de dégât encaissé réduit le total de points de vie de 1. À 0 point de vie ou moins, le joueur tombe au combat. |
 | **Points d'action** | Nombre d'actions maximal qu'un joueur peut effectuer dans un même tour. |
 | **Relances** | Nombre total de relances de dés avec lequel le joueur commence un combat. Utilisable à chaque jet de dé pour rejouer et changer sa valeur immédiatement (réduit le total de 1 ; impossible à 0). |
-| **Points de mouvement** | Nombre total de déplacements qu'un joueur peut faire lors d'un tour. Un déplacement correspond à se déplacer sur une case adjacente (orthogonale ou diagonale) sur la grille de jeu. |
+| **Points de mouvement** | Nombre total de déplacements qu'un joueur peut faire lors d'un tour. Un déplacement correspond à se déplacer sur une case adjacente sur la grille de jeu. |
 | **Précision** | Dicte la difficulté à toucher une cible au combat. À 0, il est impossible de toucher une cible. Chaque point de précision correspond au nombre de faces du dé (d20) menant à un succès en partant du 20 vers le bas (ex. : 5 de précision = 5 faces : 20, 19, 18, 17, 16 en succès et moins de 16 en échec ; 7 de base = 7 faces : 14 à 20). |
 
 ### Statistiques de base
@@ -179,7 +179,7 @@ Un archétype offre l'option d'une action spéciale exclusive utilisable **une s
 
 ## Lexique et règles implicites
 
-- **Adjacence :** Deux entités ou cases sont considérées comme **adjacentes** si elles se touchent orthogonalement (haut, bas, gauche, droite) **ou en diagonale** (soit les 8 cases entourant une case sur la grille).
+- **Adjacence :** Deux entités ou cases sont considérées comme **adjacentes** si elles se touchent orthogonalement (haut, bas, gauche, droite) (soit les 8 cases entourant une case sur la grille).
 - **Engager une arme :** Consiste à *tap* (tourner/incliner) la carte correspondant à la main qui tient l'arme.
 - **Engagement d'ennemi :** Être adjacent à l'ennemi et s'être fait attaquer par cet ennemi au moins une fois.
 - **Équipement en main :** Une seule arme équipée par main.
