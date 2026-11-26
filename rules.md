@@ -154,6 +154,8 @@ ou
 
 ##### Leader
 
+Le leader peut toujours dépenser une action pour donner une action à un allié adjacent.
+
 L'action spéciale:
 - Donne une action standard à 2 alliés dans un rayon de 1 + (CHR // 2) cases
 
@@ -399,9 +401,13 @@ Un résultat de 20 est toujours un succès et un coup critique.
 
 Les attaques d'explosif nécessite un jet de précision par cible dans le rayon d'explosion.
 
-Les armes à distance ne peuvent pas atteindre les cibles adjacentes
+Les armes à distance ne peuvent pas atteindre les cibles adjacentes.
+
+Un armes de corps à corps a une précision accrue de 2.
 
 ##### Adjacence
+
+Voici une grille qui montre les cases considérées adjacente à un joueur
 
 | # | # | # | # | # | # | # | # | # |
 |---|---|---|---|---|---|---|---|---|
@@ -411,6 +417,11 @@ Les armes à distance ne peuvent pas atteindre les cibles adjacentes
 | # |   |   | X | X | X |   |   | # |
 | # |   |   |   |   |   |   |   | # |
 | # | # | # | # | # | # | # | # | # |
+
+Légende
+\# : mur
+X : Case adjacente
+O : Un joueur
 
 ##### Coup critique
 
@@ -430,9 +441,20 @@ Les dégats infligés d'une attaque à distance sont calculés selon les formule
 
 ###### Explosifs 
 
-Une explosion effectue une attaque explosive par cible contenue dans le rayon d'explosion.
+Un explosif lancé cause une explosion à l'impact au sol.
+
+Une explosion effectue une attaque explosive par cible contenue dans le rayon d'explosion de 2 cases par défaut.
 
 Les dégats infligés par un impact d'explosif sont calculés selon les formules suivante: \[ (Dégats de l'explosif) + (INT// 3) \]
+
+##### Aggro
+
+Un joueur gagne le status d'aggro lorsqu'une des situations suivantes se produit:
+- Le joueur attaque avec une arme (non silencieuse)
+- Le joueur attaque en étant engagé
+- Le joueur se déplace de 3 cases ou plus
+
+Un ennemi est forcé d'attaquer uniquement les joueurs ayant l'aggro s'il y en a.
 
 #### 2. Recharger
 
@@ -451,41 +473,102 @@ ou
 Le joueur:
 - Rempli une arme équipées de \[ 2 + LCK // 4 \] munitions ou jusqu'à ce que l'arme soit pleine
 
-#### Se déplacer
+#### 3. Se déplacer
 
 Le joueur:
 - Dépense jusqu'à son maximum de points de mouvements
 - Se déplace d'un nombre de cases égal au nombre de points de mouvement dépensés
 
-#### Équiper une arme ou objet
+#### 4. Équiper une arme ou objet
 
 Le joueur:
 - Prend un objet de son inventaire et la place dans une main vide disponible 
 - Dans le cas d'une arme, désengage l'arme
 
-#### Déséquiper une arme ou objet
+#### 5. Déséquiper une arme ou objet
 
 Le joueur:
 - Place un objet équipé depuis une main dans l'inventaire
 
-#### Consommer un objet
+#### 6. Consommer un objet
 
 Le joueur:
 - Retirer un objet de l'inventaire
 - Effectuer l'effet inscrit sur l'objet
 
-Utiliser un objet de son sac (Utilise le nombre d'action inscrit sur l'objet)
-Sortir du melee/cohésion = x > 10 pour succès
-Stabiliser un allié (relève automatiquement un allié à 1 pts de vie)
-Échéanger des items avec un allié en cohésion
-Action contextuel ( incluant la créativité du joueur )
-perdre l'aggro
-desengager 1 fois par tour
-lancer un objet
-consommer un objet
-Faire consommer un objet en sa possession à un allié adjacent
-donner un objet a un allié adjacent
-prendre un objet a un allié adjacent
+Le joueur:
+- Retirer un objet de l'inventaire
+- Un allié adjacent effectue l'effet inscrit sur l'objet
+
+#### 7. Se désengager
+
+Le joueur:
+- Lance un dé 20
+- Se désengage des ennemis adjacent, si le résultat est supplémentaires à \[ 10 - END // 3 \]
+
+
+##### Engagement d'un ennemi
+
+Un joueur ou ennemi qui attaque et est adjacent à une cible est dit engagé. Lorsqu'un ennemi est engagé à un joueur, ce joueur ne peut plus bouger tant qu'il est engagé par l'ennemi.
+
+#### 8. Stabiliser un allié
+
+Le joueur:
+- Relève un allié tombé au combat
+- Donne un point de vie
+
+#### 9. Donner un objet
+
+
+#### 7. Se désengager
+
+Le joueur:
+- Lance un dé 20
+- Se désengage des ennemis adjacent, si le résultat est supplémentaires à \[ 10 - END // 3 \]
+
+
+##### Engagement d'un ennemi
+
+Un joueur ou ennemi qui attaque et est adjacent à une cible est dit engagé. Lorsqu'un ennemi est engagé à un joueur, ce joueur ne peut plus bouger tant qu'il est engagé par l'ennemi.
+
+#### 8. Stabiliser un allié
+
+Le joueur:
+- Relève un allié tombé au combat
+- Donne un point de vie
+
+#### 9. Donner un objet
+
+Le joueur:
+- Donne un objet à un joueur adjacent de l'inventaire ou équipé
+- Place l'objet dans l'inventaire de l'allié ciblé
+
+#### 10. Prendre un objet
+
+Le joueur:
+- Prend l'objet d'un allié adjacent de son inventaire ou équipé (nécessite le consentement de l'allié)
+- Place l'objet dans l'inventaire du joueur ou dans une main vide (l'objet est désengagé)
+
+#### 11. Lancer un objet
+
+Le joueur:
+- Lance un objet équipé a une portée de 4 cases.
+
+##### Consomable lancé
+
+Si un consommable est lancé et la cible est un allié. Ce dernier gagne directement les effets du consommable lancé.
+
+#### 12. Perdre l'aggro
+
+Le joueur:
+- perd le statut d'aggro
+
+#### 13. Action contextuel
+
+Un joueur peut faire une action contextuel créative à la discrétion du DM. 
+
+
+destabiliser une ennemi: inflige 1 degat de moins, 1 point de mouvement de moins, precision de moins.
 
 Range:
 Précision standard:
@@ -501,16 +584,7 @@ Over range :
 +2 cases : Précision nécessaire + 8
 +3 : Impossible
 
-Aggro
-Lorsqu'un personne bouge 2 case ou +, tire, attaque en melee ou est en cohésion avec un ennemi, elle gagne un token d'aggro
-Si une personne ne bouge pas ou 1 case max, tire pas, attaque pas en melee, n'est pas en cohésion avec un ennemi et n'est pas en vue, elle perd son token d'aggro
-Les ennemies vont favoriser les joueurs avec un token d'aggro pour ensuite aller vers les joueurs sans token si plus aucun joueur en a.
 
-
-Cohésion
-Doit utiliser 1 action pour sortir de la cohésion  ; x > 10 pour succès
-Cohésion avec ennemi - Ne peux plus attaquer avec des armes de range
-Cohésion avec allié - Peux healer et échanger des objets
 
 Vente d'objets
 (Cout de l'objet / 2)
@@ -525,34 +599,6 @@ Combat
 Les joueurs peuvent tiré a traver les autres joueur, mais pas les ennemies
 Si un joueur tire un ennemi qui est en cohésion avec un allié, + 5 de précision nécessaire
 Lorsqu'un joueur perd tout ses point de vie, il tombe en état critique. Le joueur doit lancer x > 15 pour se relever. Un allié stabilisé revient avec 1 pts de vie (3 chances, 1 par tour)
-
- Déroulement:
-Untap phase (untap armes ou objets tapped)
-Action possible (1 action parmi ceux-ci = 1 action): :
-Attaquer : Utilise une arme équiper
-Coup de poings
-Tap l'arme
-Utilise le nombre d'action inscrit sur l'arme
-Jet de dé pour précision (s'applique au melee et range) = x > 13 pour succés (1 == Toujours raté) (20 == Double dmg)
-Recharger
-Si arme de type revolver : 2 + (LCK // 4) balles recharger = 1 action
-Cependant, le revolver peut utiliser 1 action pour choisir la balle dans le baril
-Si arme de type Colt : 1 clip = 1 action, Cependant :
-Si le clip est vide, 1 action = 2 + (LCK // 4) balle recharger dans le clip
-Bouger : permet d'utiliser tout sont mouvement ou partiellement
-Équiper ou déséquiper une arme
-Utiliser un objet de son sac (Utilise le nombre d'action inscrit sur l'objet)
-Sortir du melee/cohésion = x > 10 pour succès
-Stabiliser un allié (relève automatiquement un allié à 1 pts de vie)
-Échéanger des items avec un allié en cohésion
-Action contextuel ( incluant la créativité du joueur )
-perdre l'aggro
-desengager 1 fois par tour
-lancer un objet
-consommer un objet
-Faire consommer un objet en sa possession à un allié adjacent
-donner un objet a un allié adjacent
-prendre un objet a un allié adjacent
 
 Loot
 Container commun:
@@ -605,25 +651,16 @@ Ennemi uncommun (chaque joueur lance 1 dé) :
 17-18 : Objet uncommun + 10$
 19-20 : Objet rare + 15$
 
+a faire dans le document:
 attaque melee toujours silencieuse
-engager une arme
-engager un ennemi
-precision corps a corps
-leader 1 pour 1
-bully immobiliser, prend un de ou est destabiliser
-brawler pour range
-range peut pas taper en melee
-sleight of hand recharge plus
-informant pas plus quun buff par joueur
-la prochaine attaque silencieuse est double, silent
-melee plus de precision
-reload need luck
+arme range peut pas taper en melee
+informant donne pas plus quun buff par joueur
 ne pas oublier de balance les prix
-nat plus precision au melee
-consommer pour une action
-lexique engager, aggro
+lexique engager arme = tap la carte de larme
 une arme equipee par main
 
-range pas corps a corps
+idees:
+archetype pour shotgun
+ne pas oublier de balance les prix
 
 À tout moment, un joueur est en droit de lire les règles du jeu, même au risque de "casser la vibe", sauf si son \[ INT \] est strictement inférieur 0. Le cas échéant, les capacités cognitives du joueur ne lui permettent pas de comprendre les règles du jeu.
