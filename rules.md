@@ -304,7 +304,7 @@ Un ennemi est forcé d'attaquer uniquement les joueurs ayant l'aggro s'il y en a
 - Remplit une arme équipée de `2 + (LCK // 4)` munitions (jusqu'à ce qu'elle soit pleine).
 
 #### 3. Se déplacer
-- Dépense jusqu'à son maximum de points de mouvement et se déplace d'autant de cases (orthogonalement ou en diagonale).
+- Dépense jusqu'à son maximum de points de mouvement et se déplace d'autant de cases
 
 #### 4. Équiper une arme ou un objet
 - Prend un objet de son inventaire et le place dans une main vide disponible (désengage l'arme le cas échéant).
