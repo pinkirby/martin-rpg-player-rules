@@ -364,12 +364,9 @@ Il y a 2 camps, celui des ennemis et celui des alliés.
 
 Le DM et un des joueurs lance chacun un dé. Le camps allié commence si le résultat du dé du joueur est supérieur à celui du DM, sinon le camps ennemi commence. En cas d'égalité, on recommence ce processus.
 
-Chaque camps choisi l'ordre des tours de tous les membres du camps. Selon l'ordre décidé les joueurs 
+Chaque camps choisi l'ordre des tours de tous les membres du camps. Les joueurs doivent unanimement être d'accord sur l'ordre décidé. Selon l'ordre établi des joueurs, les joueurs effectue leur tour dans cet ordre un à la suite de l'autre.
 
-Lorsque c'est le tour du camps allié, les joueurs font les étapes suivantes jusqu'à ce que tout les joueurs est effectué exactement un tour:
-- Décider qui prend le prochain tour
-- Le joueur sélectionné effectue son tour
-
+Pour le camps d'ennemi, c'est à la discrétion du DM.
 
 ### Phase de début de tour
 
@@ -379,26 +376,103 @@ Lorsque c'est le tour du camps allié, les joueurs font les étapes suivantes ju
 
 ### Actions
 
-Une action coûte un point d'action pour être effectuée. Voici les actions possible en combat.
+Une action coûte un point d'action pour être effectuée par un joueur. Voici les actions possible en combat.
 
-#### Attaquer
+#### 1. Attaquer
 
-- Engage une arme équipée
+Le joueur:
+- Engage une arme équipée ou donne un coups de poings avec une main vide
 - Cible un ennemi à portée
-- Inflige des dégats à la cible équivalent à la puissance de l'arme + le modificateur donné par les charactéristiques
+- Effectue un jet de précision, 
+- Si le jet de précision est un succès, le joueur inflige les dégats calculés à la cible
+- Dans le cas où une arme avec munition est utilisé pour l'attaque, une munition est retirée de l'arme immédiatement
 
-Attaquer : Utilise une arme équiper
-Coup de poings
-Tap l'arme
-Utilise le nombre d'action inscrit sur l'arme
-Jet de dé pour précision (s'applique au melee et range) = x > 13 pour succés (1 == Toujours raté) (20 == Double dmg)
-Recharger
-Si arme de type revolver : 2 + (LCK // 4) balles recharger = 1 action
-Cependant, le revolver peut utiliser 1 action pour choisir la balle dans le baril
-Si arme de type Colt : 1 clip = 1 action, Cependant :
-Si le clip est vide, 1 action = 2 + (LCK // 4) balle recharger dans le clip
-Bouger : permet d'utiliser tout sont mouvement ou partiellement
-Équiper ou déséquiper une arme
+##### Jet de précision
+
+Un jet de précision nécessite de lancer un dé 20.
+
+Un jet de précision est un succès si le résultat de dé est comprise entre \[ 20 - (Précision du joueur) \] et 20, sinon, le jet est un échec.
+
+Un résultat de 1 au dé est toujours un échec.
+
+Un résultat de 20 est toujours un succès et un coup critique.
+
+Les attaques d'explosif nécessite un jet de précision par cible dans le rayon d'explosion.
+
+Les armes à distance ne peuvent pas atteindre les cibles adjacentes
+
+##### Adjacence
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   | X | X | X |   |
+|   | X | O | X |   |
+|   | X | X | X |   |
+| . |   |   |   |   |
+
+##### Coup critique
+
+Un coup critique double les dégats infligé de l'attaque en cours.
+
+##### Dégats
+
+###### Arme au corps à corps
+
+Les dégats infligés d'une attaque de corps à corps sont calculés selon les formules suivante: \[ (Dégats de l'arme) + (STR // 3) \]
+
+Les dégats infligés par un coup de poing sont calculés selon les formules suivante: \[ (Dégats de l'arme) + (STR // 3) \]
+
+###### Arme à distance
+
+Les dégats infligés d'une attaque à distance sont calculés selon les formules suivante: \[ (Dégats de l'arme) + (AGI // 3) \]
+
+###### Explosifs 
+
+Une explosion effectue une attaque explosive par cible contenue dans le rayon d'explosion.
+
+Les dégats infligés par un impact d'explosif sont calculés selon les formules suivante: \[ (Dégats de l'explosif) + (INT// 3) \]
+
+#### 2. Recharger
+
+Le joueur:
+- Retire le chargeur d'une arme équipées
+- Place un nouveau chargeur dans cet arme
+
+ou
+
+Le joueur:
+- Rempli un chargeur de son inventaire de \[ 2 + LCK // 4 \] balles ou jusqu'à ce que le chargeur soit plein
+- Place le chargeur dans l'arme si aucun chargeur n'est présent dans l'arme
+
+ou
+
+Le joueur:
+- Rempli une arme équipées de \[ 2 + LCK // 4 \] munitions ou jusqu'à ce que l'arme soit pleine
+
+#### Se déplacer
+
+Le joueur:
+- Dépense jusqu'à son maximum de points de mouvements
+- Se déplace d'un nombre de cases égal au nombre de points de mouvement dépensés
+
+#### Équiper une arme ou objet
+
+Le joueur:
+- Prend un objet de son inventaire et la place dans une main vide disponible 
+- Dans le cas d'une arme, désengage l'arme
+
+#### Déséquiper une arme ou objet
+
+Le joueur:
+- Place un objet équipé depuis une main dans l'inventaire
+
+#### Consommer un objet
+
+Le joueur:
+- Retirer un objet de l'inventaire
+- Effectuer l'effet inscrit sur l'objet
+
 Utiliser un objet de son sac (Utilise le nombre d'action inscrit sur l'objet)
 Sortir du melee/cohésion = x > 10 pour succès
 Stabiliser un allié (relève automatiquement un allié à 1 pts de vie)
@@ -547,6 +621,8 @@ ne pas oublier de balance les prix
 nat plus precision au melee
 consommer pour une action
 lexique engager, aggro
+une arme equipee par main
+
 range pas corps a corps
 
 À tout moment, un joueur est en droit de lire les règles du jeu, même au risque de "casser la vibe", sauf si son \[ INT \] est strictement inférieur 0. Le cas échéant, les capacités cognitives du joueur ne lui permettent pas de comprendre les règles du jeu.
