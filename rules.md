@@ -1,666 +1,373 @@
 # Création de personnage
 
+> **Notation mathématique :** L'opérateur `//` désigne la **division entière** (arrondie vers l'infini négatif, comme en programmation / floor(a / b)). Par exemple, 7 // 2 = 3.
 
-Chaque joueur doit faire les 3 choix suivant pour creer son personnage:
+Chaque joueur doit faire les **3 choix** suivants pour créer son personnage :
 
-- 12 points à distribuer dans les différentes caractéristiques 
-- 1 Archétype
-- 1 Talent
+- **12 points** à distribuer dans les différentes caractéristiques
+- **1 Archétype**
+- **1 Talent**
 
-
-Description des statistiques
 ---
 
-##### Points de vie
+## Description des statistiques
 
-Le nombre de points de dégat total qu'un ennemi doit infliger pour que le joueur tombe au combat. Chaque point de dégat encaissé réduit le total de points de vie de 1. Lorsque le nombre de points de vies est inférieur ou égal à 0, le joueur tombe au combat.
+| Statistique | Description |
+| :--- | :--- |
+| **Points de vie** | Nombre de points de dégâts total qu'un ennemi doit infliger pour que le joueur tombe au combat. Chaque point de dégât encaissé réduit le total de points de vie de 1. À 0 point de vie ou moins, le joueur tombe au combat. |
+| **Points d'action** | Nombre d'actions maximal qu'un joueur peut effectuer dans un même tour. |
+| **Relances** | Nombre total de relances de dés avec lequel le joueur commence un combat. Utilisable à chaque jet de dé pour rejouer et changer sa valeur immédiatement (réduit le total de 1 ; impossible à 0). |
+| **Points de mouvement** | Nombre total de déplacements qu'un joueur peut faire lors d'un tour. Un déplacement correspond à se déplacer sur une case adjacente sur la grille de jeu. |
+| **Précision** | Dicte la difficulté à toucher une cible au combat. À 0, il est impossible de toucher une cible. Chaque point de précision augmente le nombre de faces du dé correspondant à un succès (ex. : 5 de précision = 20, 19, 18, 17, 16 en succès et moins de 16 en échec). |
 
-##### Points d'action
+### Statistiques de base
 
-Le nombre d'actions maximal qu'un joueur peut effectuer dans un même tour.
+Valeur maximale de base pour chacune des statistiques du joueur :
 
-##### Relances
+| Statistique | Valeur |
+| :--- | :---: |
+| Points de vie | 30 |
+| Points d'action | 3 |
+| Relances | 1 |
+| Points de mouvement | 3 |
+| Précision | 7 |
 
-Le nombre total de relances de dés avec lequel le joueur commence un combat. Une relance peut être utilisé à chaque fois qu'un dé est lancé pour rejouer le dé et changer sa valeur immédiatement. Chaque utilisation d'une relance reduit son total de relances par 1. Lorsque le total de relance est à 0, il n'est plus possible de rejouer le dé.
-
-##### Points de mouvements
-
-Le nombre total de déplacements qu'un joueur peut faire lors d'un tour. Un déplacement correspond à se déplacer sur une case adjacente sur la grille de jeu.
-
-##### Précision
-
-La précision dicte la difficulté à toucher une cible au combat. Avec une précison nulle (0) il est impossible de toucher une cible. Chaque points en précision augmente le nombre de faces du dé qui correspondent à un succès, i.e une cible atteinte. Par exemple, un joueur avec 5 de précision possède 5 faces succès (20, 19, 18, 17, 16) et 15 faces d'échec (toutes les faces inférieures à 16).
-
-#### Statistiques de base
-
-Le tableau suivant indique la valeur maximale de base pour chacune des statistiques du joueur.
-
-| Statistique          | Valeur |
-|----------------------|--------|
-| Points de vie        | 30     |
-| Points d'action      | 3      |
-| Relances             | 1      |
-| Points de mouvement  | 3      |
-| Précision            | 7      |
-
-Possessions de départ
 ---
 
-- Commence avec 10 $
-- Une arme à distance (Choix entre : Colt 45, Revolver)
-- Une arme de melee (Baton, couteau)
-- 2 chargeur remplis (6 balles chacun)
-- Un medkit
+## Possessions de départ
 
-Caratéristiques
+- **10 $**
+- **1 arme à distance** (au choix : Colt 45, Revolver)
+- **1 arme de mêlée** (au choix : Bâton, Couteau)
+- **2 chargeurs remplis** (6 balles chacun)
+- **1 Medkit**
+
 ---
 
-Les valeurs d'une caractéristique ne peut qu'être comprise en 0 et 10. Chaque points investi caractéristique réduit la difficulté des tests d'abilité (voir la section sur les tests d'abilité). Voici les avantages que chaque caractéristique confère.
+## Caractéristiques
 
-##### Force (STR)
+Les valeurs d'une caractéristique sont comprises entre **0 et 10**. Chaque point investi dans une caractéristique réduit la difficulté des tests d'habileté (voir la section *Tests d'habileté*).
 
-- Augmente de 1 le nombre de dégats infligés pour chacune attaque au corps à corps effectué pour chaque point attribué
+| Caractéristique | Abréviation | Effets et bonus |
+| :--- | :---: | :--- |
+| **Force** | **STR** | +1 dégât par attaque au corps à corps par point attribué. |
+| **Perception** | **PER** | Augmente la précision du joueur de PER // 2. |
+| **Endurance** | **END** | +1 maximum de points de vie par point attribué ; augmente les points de mouvement de END // 3. |
+| **Charisme** | **CHR** | Réduit le coût d'achat d'un objet de 1 $ par point (minimum 1 $ par objet) ; chaque marchand rencontré offre 1 + (CHR // 2) balles ou (CHR // 4) $ gratuitement ; augmente la valeur de revente de chaque objet possédé. |
+| **Intelligence** | **INT** | +1 dégât infligé par les explosifs par point attribué. |
+| **Agilité** | **AGI** | +1 dégât infligé par les armes à distance par point attribué. |
+| **Chance** | **LCK** | Augmente le nombre maximal de relances du joueur de LCK // 2. |
 
-##### Perception (PER)
-
-- Augmente de (PER // 2) la précision du joueur
-
-##### Endurance (END)
-
-- Augmente de 1 le maximum total de points de vie pour chaque point attribué
-- Augmente de (END // 3) les points de mouvement 
-
-##### Charisme (CHR)
-
-- Réduit la valeur de 1$ pour l'achat d'un objet pour chaque point attribué (pour un minimum possible de 1$ par objet)
-- Chaque marchant rencontré offre (1 + CHR // 2) balles ou (CHR // 4)$ gratuitement
-- Augmente la valeur de revente de chaque objet possédé
-
-##### Intelligence (INT)
-
-- Augmente de 1 le nombre de dégats infligé par les explosifs pour chaque point attribué 
-
-##### Agilité (AGI)
-
-- Augmente de 1 le nombre de dégats infligé par les armes à distance pour chaque point attribué 
-
-##### Chance (LCK)
-
-- Augmente de (LCK // 2) le nombre maximal de relances du joueur
-
-Archétypes
 ---
 
-Un archétype offre l'option d'une action spéciale exclusive utilisable une seule fois par tour (sauf si contre-indiqué).
+## Archétypes
 
-##### Bouncer
+Un archétype offre l'option d'une action spéciale exclusive utilisable **une seule fois par tour** (sauf indication contraire).
 
-L'action spéciale:
-- Provoque la reduction de 1 + (END // 4) des dégats infligés par les ennemis jusqu'au prochain tour du joueur 
-- Force les ennemis à 1 + (CHR // 3)  cases ou moins de distance d'engager le bouncer si possible
+### Bouncer
+- **Action spéciale :**
+  - Réduit de 1 + (END // 4) les dégâts infligés par les ennemis jusqu'au prochain tour du joueur.
+  - Force les ennemis à 1 + (CHR // 3) cases ou moins de distance d'engager le Bouncer si possible.
 
-##### Boxer
+### Boxer
+- **Condition :** Avoir les deux mains vides.
+- **Action spéciale :** Attaque une même cible avec une précision réduite de 2 jusqu'à ce qu'une des conditions suivantes soit vérifiée :
+  - 2 + (STR // 2) attaques ont été faites.
+  - Une attaque subséquente est manquée (toute attaque faite après la toute première).
 
-Le boxeur doit avoir les deux mains vide pour pouvoir utiliser son action spéciale.
+### Brawler
+- **Action spéciale :** Attaque 2 fois avec une arme au corps à corps équipée sans engager l'arme utilisée ainsi.
 
-L'action spéciale:
-- Attaque une même cible, avec une précision réduite de 2, jusqu'à ce qu'une des condition suivante soit vérifiée:
-    - \[ 2 + STR // 2 \] attaques ont été faites
-    - un attaque subséquente soit manquée (i.e. une attaque faite après la toute première est une attaque subséquente)
+### Bully
+- **Action spéciale :**
+  - Rend 1 + (CHR // 6) cibles immobiles dans un rayon de 1 + (CHR // 2) cases jusqu'au prochain tour du Bully.
+  - Les alliés dans un rayon de 1 + (CHR // 3) cases augmentent leur précision de 1 + (CHR // 4) contre les cibles ennemies atteintes par cette action spéciale.
+  - *Rappel :* Une cible ennemie ne peut être immobilisée qu'une seule fois par combat. Les immobilisations subséquentes sur une même cible la rendent **déstabilisée** à la place.
 
-##### Brawler
+### Card Dealer
+- N'a pas d'action spéciale. Au début de son tour, le joueur décide s'il souhaite lancer un **d8** (relances possibles). Selon le résultat, il obtient le bonus ou malus suivant pour le tour actif :
 
-L'action spéciale:
-- Attaque 2 fois avec une arme au corps à corps équipées sans engager l'arme utilisés ainsi.
+| d8 | Effet pour le tour actif |
+| :---: | :--- |
+| **1** | Réduit le total de points d'action disponibles de 1. |
+| **2** | Réduit de 3 - (LCK // 4) les points de dégâts infligés pour chacune des attaques. |
+| **3** | Augmente la précision du joueur de 2 + (LCK // 3). |
+| **4** | Restaure 2 + (LCK // 3) points de vie au joueur. |
+| **5** | Augmente le maximum de points de mouvement de 2 + (LCK // 4). |
+| **6** | Augmente de 1 + (LCK // 3) les points de dégâts infligés par les armes au corps à corps et aux poings. |
+| **7** | Augmente de 1 + (LCK // 3) les points de dégâts infligés par les armes à distance. |
+| **8** | Augmente le total de points d'action disponibles de 1 et augmente de 1 + (LCK // 4) les points de dégâts infligés par les explosifs. |
 
-##### Bully
+### Cowboy
+- **Condition :** Avoir une main vide et une main équipée d'une arme avec un barillet.
+- **Action spéciale :** Attaque une même cible avec une précision réduite de 2 jusqu'à ce qu'une des conditions suivantes soit vérifiée :
+  - 2 + (AGI // 2) attaques ont été faites.
+  - Une attaque subséquente est manquée (toute attaque faite après la toute première).
+  - Le barillet est vide.
 
-L'action spéciale:
-- Rend 1 + (CHR // 6) cibles immobile dans un rayon de 1 + (CHR // 2) cases jusqu'au prochain tour du bully. Les alliés dans un rayon de 1 + (CHR // 3) cases augmentent leur précision de 1 + (CHR // 4) contre les cibles ennemis atteintes par l'action spéciale du bully.
+### Hitman
+- **Action spéciale (au choix) :**
+  - Recharge 2 armes équipées.
+  - Attaque avec chacune des armes équipées sans engager les armes utilisées.
 
-(Rappel: Une cible ennemi ne peut être immobilisé qu'une seule fois par combat. Les immobilisations subséquentes sur une même cible la rende déstabilisée à la place) 
+### Leader
+- **Passif :** Peut toujours dépenser une action pour donner une action à un allié adjacent.
+- **Action spéciale :** Donne une action standard à 2 alliés dans un rayon de 1 + (CHR // 2) cases.
 
-##### Card Dealer
+### Medic
+- **Action spéciale (au choix) :**
+  - Stabiliser un allié et lui donner 1 + (INT // 2) points de vie.
+  - Convertir un medkit en pistolet régénérateur et tirer sur une cible alliée (jet de précision requis pour toucher). Si touchée, la cible regagne les points de vie d'un medkit standard + 1 + (INT // 2) points de vie.
 
-Le card dealer n'a pas d'action spéciale. À la place, au début de son tour, le joueur decide s'il souhaite lancer un dé 8. S'il décide de le faire, en fonction du résultat, le card dealer obtient le bonus/malus ci-dessous pour le tour actif. Les relances sont possible pour ce dé.
+### Professional Pitcher
+- **Action spéciale :**
+  - Équipe jusqu'à un objet dans 2 mains libres.
+  - Lance un objet avec une portée accrue de 1 + (LCK // 3) cases.
 
-1. Réduit le total de points d'action disponibles de 1
-2. Réduit de 3 - (LCK // 4) les points de dégats infligés pour chacune des attaques
-3. Augmente la précision du joueur de 2 + (LCK // 3)
-4. Restore soi-même de 2 + (LCK // 3) points de vie
-5. Augmente de 2 + (LCK // 4) maximum points de mouvements
-6. Augmente de 1 + (LCK // 3) les points de dégats infligés par les armes au corps à corps et aux poings
-7. Augmente de 1 + (LCK // 3) les points de dégats infligés par les armes à distance
-8. Augmente le total de points d'action disponibles de 1 et augmente de 1 + (LCK // 4) les points de dégats infligés par les explosifs
+### Rogue
+- **Condition :** Ne pas être engagé et ne pas avoir l'aggro.
+- **Action spéciale :**
+  - Se déplace de 2 + (END // 4) cases vers un ennemi immédiatement.
+  - Attaque un ennemi à portée avec une arme de corps à corps et assure un coup critique si l'attaque touche.
 
-##### Cowboy
+### Rummager
+- **Passif :** Hors combat, peut faire l'action de fouiller jusqu'à 1 + (LCK // 2) fois entre chaque repos court au lieu d'une seule.
+- **Action spéciale (au choix) :**
+  - Fait l'action de fouiller durant le combat à condition d'être à couvert.
+  - Fabrique une grenade improvisée : coûte 10 - (INT // 3) balles et inflige autant de dégâts qu'une dynamite standard.
 
-Le cowboy doit avoir une main vide et une main équipée d'un arme avec un barillet pour pouvoir utiliser son action spéciale.
+### Sniper
+- **Condition :** Ne pas être engagé et ne pas avoir l'aggro.
+- **Action spéciale :** Attaque avec une arme à un coup (*Single shot*) avec un bonus de précision temporaire de 1 + (PER // 4) pour l'attaque et assure un coup critique si l'attaque touche.
 
-L'action spéciale:
-- Attaque une même cible, avec une précision réduite de 2, jusqu'à ce qu'une des condition suivante soit vérifiée:
-    - \[ 2 + AGI // 2 \] attaques ont été faites
-    - un attaque subséquente soit manquée (i.e. une attaque faite après la toute première est une attaque subséquente)
-    - jusqu'à ce que le barillet soit vide
+### Spy
+- **Action spéciale :**
+  - Provoque la perte de l'engagement des ennemis adjacents.
+  - Donne une action de mouvement gratuite immédiatement (3 + (END // 3) cases).
+  - Provoque la perte de l'aggro pour le tour.
+  - Rend la prochaine attaque silencieuse (ne provoque pas l'aggro des ennemis).
 
-##### Hitman 
-
-L'action spéciale:
-- Recharge 2 armes équipées
-
-ou
-
-- Attaque avec chacune des armes équipées sans engager les armes utilisées. 
-
-##### Leader
-
-Le leader peut toujours dépenser une action pour donner une action à un allié adjacent.
-
-L'action spéciale:
-- Donne une action standard à 2 alliés dans un rayon de 1 + (CHR // 2) cases
-
-##### Medic
-
-L'action spéciale:
-- Stabiliser un allié
-- Donner 1 + (INT // 2) points de vie a cet allié
-
-ou
-
-- Convertir un medkit en pistolet regénérateur
-- Tirer le pistolet sur une cible allié. Un jet de précision est nécessaire pour atteindre la cible
-- Une cible atteinte regagne les points de vie donné par un un medkit standard + (1 + INT // 2) points de vie
-
-##### Professional Pitcher
-
-L'action spéciale:
-- Équipe jusqu'à un objet dans 2 main libre
-- Lance un objet avec une portée accrue de 1 + (LCK // 3) cases
-
-##### Rogue
-
-Le rogue doit ne pas être engagé et ne doit pas avoir l'aggro pour pouvoir utiliser son action spéciale.
-
-L'action spéciale:
-- Permet de bouger de 2 + (END // 4) cases vers un ennemi immédiatemment
-- Attaque avec une arme de corps à corps un ennemi à portée et assure un coup critique de l'attaque si cette dernière touche la cible
-
-##### Rummager
-
-Hors combat, le rummager peut faire l'action de fouiller jusqu'à 1 + (LCK // 2) fois entre chaque repos court au lieu d'une seule. 
-
-L'action spéciale:
-- Fait l'action de fouiller durant le combat à condition d'être à couvert.
-
-ou
-
-- Permet de fabriquer une grenade improvisée. La grenade improvisée coûte 10 - (INT // 3) balles pour être construite et inflige le même nombre de points de dégat qu'une dynamite standard. 
-
-##### Sniper
-
-Le sniper doit ne pas être engagé et ne doit pas avoir l'aggro pour pouvoir utiliser son action spéciale.
-
-L'action spéciale:
-- Attaque avec une arme à un coup (Single shot) et donne un bonus de 1 + (PER // 4) de précision temporaire pour l'attaque et assure un coup critique de l'attaque si cette dernière touche la cible
-
-##### Spy
-
-L'action spéciale:
-- Provoque la perte de l'engagement des ennemis adjacents
-- Donne une action de mouvement gratuite immédiatemment, i.e. le joueur peut bouger de 3 + (END // 3) cases.
-- Provoque perte de l'aggro pour le tour
-- Rend la prochaine attaque est silencieuse, i.e. ne provoque pas l'aggro des ennemis
-
-Talents
 ---
 
-##### Retaliator
+## Talents
 
-La première fois qu'un joueur se fait attaquer par un ennemi engagé, il peut effectuer une contre-attaque avec une arme au corps à corps disponible même si l'arme est engagée ou avec son poing s'il est disponible.
+| Talent | Effet |
+| :--- | :--- |
+| **Retaliator** | La première fois qu'un joueur se fait attaquer par un ennemi engagé, il peut effectuer une contre-attaque avec une arme au corps à corps disponible (même si engagée) ou avec son poing s'il est disponible. |
+| **Opportunist** | Lorsqu'un ennemi se désengage du joueur, celui-ci peut faire une action d'attaque avec une arme au corps à corps disponible (même si engagée) ou avec son poing s'il est disponible. |
+| **Maniac** | En attaquant avec une arme au corps à corps à 2 mains, peut attaquer jusqu'à 1 + (STR // 4) cibles supplémentaires à portée. |
+| **Strategist** | S'il termine son tour avec au moins 1 point d'action disponible et n'avait pas déjà de point d'action supplémentaire ce tour-ci, il gagne 2 points d'action supplémentaires au prochain tour. |
+| **Fast Fingers** | Lorsqu'un chargeur ou barillet est vide, permet de faire une action de recharge gratuite immédiatement. |
+| **Eagle Eye** | Les attaques à 5 cases de distance ou plus ont + 2 + (PER // 3) de précision et rendent l'ennemi atteint **déstabilisé**. |
+| **Rocket Scientist** | Augmente le rayon d'impact des explosifs de INT // 6. Le joueur et ses alliés sont immunisés aux explosifs durant le tour du joueur. Reçoit le double d'explosifs lorsqu'il en obtient. |
+| **Short Sighted** | Les armes à distance peuvent atteindre les cibles ennemies adjacentes. Lorsqu'il cible un ennemi avec une arme à distance dans un rayon de 2 + (PER // 4) cases ou moins, il peut attaquer immédiatement une cible à portée. |
+| **Loot Goblin** | Permet d'effectuer un pillage 1 + (LCK // 4) fois supplémentaire lors d'un pillage. |
+| **Party Animal** | Les bonus des boissons et drogues consommées ou offertes à un allié sont doublés. Reçoit le double lorsqu'une boisson ou drogue est obtenue. |
+| **Overconfident** | Permet de porter n'importe quelle arme dans une seule main. Si l'arme nécessite normalement 2 mains, sa précision est réduite de 3 - (PER // 4). |
+| **Skillful** | Lorsqu'il attaque avec une arme, inflige 1 + (LCK // 3) dégâts supplémentaires sur sa prochaine attaque avec un type d'arme encore inutilisé ce tour-ci (corps à corps, à distance, explosifs). Peut ensuite, au coût d'une action, déséquiper une arme en main pour équiper une autre arme ou un explosif du dernier type inutilisé ce tour-ci. |
+| **Clumsy** | Lorsqu'un jet de dé fait rater la cible et que le résultat du dé est pair, obtient 1 + (LCK // 4) relances (jusqu'au maximum de relances). |
+| **Sleight of Hands** | Peut déséquiper et équiper une arme pour 1 action au lieu de 2. Une fois par tour, peut faire 2 actions de recharge immédiatement au coût d'une action. |
+| **Informant** | Lorsqu'un allié devient adjacent au joueur durant le tour de ce dernier, l'allié gagne 1 + (CHR // 6) points de mouvement supplémentaires au prochain tour et inflige 1 + (CHR // 3) dégâts supplémentaires sur sa prochaine attaque. **Maximum 1 buff de l'Informant par joueur.** |
+| **Silent** | Lorsque le joueur perd l'aggro, la première attaque suivante inflige le double de dégâts. |
+| **Secourist** | Lorsqu'un allié a moins de la moitié de son maximum de points de vie, le joueur gagne 2 + (END // 3) points de mouvement supplémentaires et 2 + (PER // 3) de précision pour le tour. Les effets des medkits sont doublés. Le prochain medkit perdu n'est pas retiré de l'inventaire. |
+| **Lucky Bastard** | Augmente de 1 + (LCK // 6) le nombre de faces du dé provoquant un coup critique (ex. : 7 en Chance = critiques sur 18, 19, 20). |
+| **Quick Pocket** | Obtient une main supplémentaire utilisable exclusivement pour lancer des objets ou équiper un explosif (pas d'arme). Permet d'effectuer gratuitement jusqu'à **1 action par tour** parmi : utiliser un consommable sur soi-même, utiliser un consommable sur un allié adjacent, ou donner un objet à un allié adjacent. |
 
-##### Opportunist
-
-Lorsque qu'un ennemi se désengage du joueur, ce dernier peut faire une action d'attaque avec une arme au corps à corps disponible même si l'arme est engagée ou avec son poing s'il est disponible.
-
-##### Maniac
-
-Lorsqu'un joueur attaque avec une arme au corps à corps à 2 mains, Il peut attaquer jusqu'à 1 + (STR // 4) cibles supplémentaires à portée.
-
-##### Strategist
-
-Lorsqu'un joueur terminer son tour avec au moins 1 points d'action disponible et n'avait pas déjà de point d'action supplémentaire ce tour-ci, à son prochain tour, il aura 2 points d'action supplémentaires disponibles.
-
-##### Fast Fingers
-
-Lorsqu'un chargeur ou barillet est vide, permet de faire une action de recharge gratuite immédiatemment.
-
-##### Eagle Eye
-
-Les attaques à 5 case de distance ou plus on 2 + (PER // 3) de precision et rend l'ennemi atteint déstabilisé (perd des stats)
-
-##### Rocket Scientist
-
-Augmente le rayon d'impact des explosifs de \[ INT // 6 \]. Le joueurs et tous les alliés sont immunisés au explosifs durant le tour du joueur. Lorsque le joueur obtient un ou des explosifs, le joueur en reçoit le double à la place.
-
-##### Short Sighted
-
-Les armes à distance peuvent atteindre les cibles ennemies adjacentes. Lorsque le joueur cible un ennemi avec une arme à distance dans un rayon de 2 + (PER // 4) cases ou moins, il peut attaquer immédiatemment une cible à portée. 
-
-##### Loot Goblin
-
-Permet de effectué un piller 1 + (LCK // 4) fois supplémentaire lors d'une pille.
-
-##### Party Animal
-
-Les bonus obtenus par les boissons et drogues consommés ou offert à un allié sont doublés. Lorsqu'une boisson ou drogue est obtenu, le joueur en reçoit le double à la place.
-
-##### Overconfident
-
-Permet de porter n'importe quel arme dans une seule main. si l'arme nécessite 2 main normalement, la précision de l'arme est réduite de 3 - (PER // 4).
-
-##### Skillful
-
-Lorsqu'un joueur attaque avec une arme , le joueur inflige 1 + (LCK // 3) dégats supplémentaire sur sa prochaine attaque avec un type d'arme encore inutilisé (Pour rappel, les types d'armes sont: corps à corps, à distance et explosifs). Le joueur peut ensuite, au coût d'une action, déséquiper une arme en main pour equiper une autre arme ou un explosif du dernier type inutilisé ce tour-ci. 
-
-##### Clumsy 
-
-Lorsqu'un jet de dé cause le joueur à raté la cible. Si le résultat du dé est pair, le joueur obtient 1 + (LCK // 4) relances ou jusqu'à ce que son maximum de relances soit atteint.
-
-##### Sleight of Hands 
-
-Il est possible pour le joueur de déséquiper et équiper une arme pour une action au lieu de 2. Une fois par tour, le joueur peut, au coût d'une action, faire 2 actions de recharge immédiatement.
-
-##### Informant
-
-Lorsqu'un allié devient adjacent au joueur du le tour de ce dernier, l'allié gagne 1 + (CHR // 6) points de mouvement supplémentaire à son prochain tour et inflige 1 + (CHR // 3) dégats supplémentaires sur sa prochaine attaque.
-
-##### Silent
-
-Lorsque le joueur perd l'aggro, la première prochaine attaque inflige le double de dégats.
-
-##### Secourist
-
-Lorsqu'un allié a moins de la moitié de son maximum de points de vie, le joueur obtient 2 + (END // 3) points de mouvements supplémentaires et gagne \[ 2 + PER // 3 \] précision pour le tour. Les effets des medkits sont doublés. Le prochain medkit perdu n'est pas retiré de l'inventaire.
-
-##### Lucky Bastard
-
-Le nombre de faces sur le dé provoquants un coups critiques est augmenté de 1 + (LCK // 6). Par exemple, avec 7 points de caractéristique en chance, les coups critiques sont provoqué avec les faces 18, 19 et 20. 
-
-##### Quick Pocket
-
-Le joueur obtient une main supplémentaire utilisable exclusivement pour lancer des objets. Cette main supplémentaire ne peut pas équiper d'arme. Cette main peut équiper un explosif. Le joueur peut effectuer gratuitement jusqu'à une action par tour parmi les choix suivant:
-- Utiliser un objet consommable sur soi-même
-- Utiliser un objet consommable sur un allié adjacent
-- Donner un objet à un allié adjacent
+---
 
 # Règles
 
-Hors combat
+## Lexique et règles implicites
+
+- **Engager une arme :** Consiste à *tap* (tourner/incliner) la carte de l'arme.
+- **Équipement en main :** Une seule arme équipée par main.
+- **Attaque de mêlée :** Toujours silencieuse.
+- **Arme à distance :** Ne peut pas taper en mêlée (sauf exceptions explicitement prévues).
+- **Déplacement et espace :** Deux joueurs ne peuvent pas occuper la même case. Les joueurs peuvent tirer à travers d'autres joueurs, mais pas à travers les ennemis.
+- **Tir en cohésion :** Si un joueur tire sur un ennemi en cohésion avec un allié, il faut + 5 de précision nécessaire.
+- **État critique :** Lorsqu'un joueur perd tous ses points de vie, il tombe en état critique. Il doit lancer > 15 pour se relever. Un allié stabilisé revient avec 1 point de vie (3 chances, 1 par tour).
+- **Déstabilisé :** Un ennemi déstabilisé inflige 1 dégât de moins, a 1 point de mouvement de moins et subit un malus de précision.
+- **Vente d'objets :** Valeur de revente de base = Coût de l'objet // 2 (à équilibrer / *balance* les prix).
+- **Level up :** Gain de 5 points de caractéristique.
+- **Lecture des règles :** À tout moment, un joueur peut lire les règles du jeu, même au risque de « casser la vibe », sauf si son INT est strictement inférieur à 0 (ses capacités cognitives ne lui permettent pas de comprendre les règles).
+
 ---
 
-### Tests d'abilité (skill check)
+## Hors combat
 
-Le DM peut être amené à demander à un joueur de faire un test d'abilité dépendant de l'action du joueur. Le DM choisit la charactéristique qui sera testé et la difficulté du test. Voici une charte du résultat minimal nécessaire en fonction de la difficulté du test:
+### Tests d'habileté (*Skill check*)
 
-| Difficulté | Minimum requis |
-|------------|----------------|
-| Facile     | 6              |
-| Moyen      | 11             |
-| Difficile  | 16             |
-| Impossible | 20             |
+Le DM choisit la caractéristique testée et la difficulté. Le résultat minimal du dé est réduit de Caractéristique // 4 (un test *Impossible* ne peut pas être réduit).
 
-Le résultat minimal nécessaire du dé est reduit selon les points investi d'un joueur dans une charactéristique. La réduction du minimum requis du dé varie selon la formule suivante \[ Caractéristique // 4 \]. Par exemple, si le DM choisit un test de force avec une difficulté moyenne et le joueur a 6 point en force alors le minimum requis pour ce test sera $11 - \lfloor 6 / 4 \rfloor = 11 - 1 = 10$. Un test impossible ne peut pas être réduit.
+| Difficulté | Minimum requis de base | Formule avec caractéristique |
+| :--- | :---: | :--- |
+| **Facile** | 6 | 6 - (Carac // 4) |
+| **Moyen** | 11 | 11 - (Carac // 4) |
+| **Difficile** | 16 | 16 - (Carac // 4) |
+| **Impossible** | 20 | 20 (non réductible) |
+
+*Exemple :* Un test de Force (difficulté Moyenne) avec 6 en Force demande 11 - (6 // 4) = 11 - 1 = 10.
 
 ### Repos
 
-Durant un repos, un joueur peut faire toute les options suivantes:
-- Faire une action de fouille
-- Remplir tous ces chargeurs et barillets de ses armes
-- Équiper et déséquiper n'importe quel combinaison d'armes autant de fois qu'il le souhaite.
-- Faire une action de fouille
+Durant un repos, un joueur peut :
+- Remplir tous les chargeurs et barillets de ses armes.
+- Équiper et déséquiper n'importe quelle combinaison d'armes autant de fois qu'il le souhaite.
+- Effectuer une action de fouille (selon les conditions du type de repos).
 
-
-Les deux seuls types de repos sont les suivants.
-
-##### Repos court
-
-Les joueurs peuvent décider de faire un repos court si le DM le permet. Chaque joueur restaure le tiers (arrondi à l'entier supérieur) de ses points de vie. Il n'est possible de faire de repos court qu'après un combat et il n'est pas possible de faire plus d'un repos court entre 2 combats.
-
-Chaque joueur peut faire une action de fouille s'il le souhaite.
-
-Un repos long permet uniquement l'échange d'objets consommable entre joueurs (de manière illimité).
-
-##### Repos long
-
-Chaque joueur restaure tous ses points de vie. Il est seulement possible de faire de repos long que dans certains endroits déterminés par le DM (dans un motel par exemple).
-
-Un repos long permet l'échange libre d'objets entre joueur.
+| Type de repos | Conditions | Soins et échanges |
+| :--- | :--- | :--- |
+| **Repos court** | Autorisé par le DM ; uniquement après un combat ; **maximum 1 par combat** (entre deux combats). | Restaure le tiers (arrondi à l'entier supérieur) des points de vie. Peut faire 1 fouille. |
+| **Repos long** | Uniquement dans certains endroits déterminés par le DM (ex. : motel). | Restaure tous les points de vie. Permet l'échange libre d'objets entre joueurs. |
 
 ### Fouiller
 
-Une fouille permet de recherche des objets dans les parages. Un dé 10 doit être lancé et en fonction du résultat du dé, les objets ci-dessous sont ajoutés à l'inventaire.
+Lancer un **d10** pour ajouter des objets à l'inventaire :
 
-| Résultat | Objets obtenus      |
-|----------|---------------------|
-| 1        | 2 Balles standards  |
-| 2        | 4 Balles standards  |
-| 3        | 6 Balles standards  |
-| 4        | 2 Munition unique   |
-| 5        | 1 Medkit            |
-| 6        | 1 Bâton de dynamite |
-| 7        | 1$                  |
-| 8        | 3$                  |
+| d10 | Objets obtenus |
+| :---: | :--- |
+| **1** | 2 Balles standards |
+| **2** | 4 Balles standards |
+| **3** | 6 Balles standards |
+| **4** | 2 Munitions uniques |
+| **5** | 1 Medkit |
+| **6** | 1 Bâton de dynamite |
+| **7** | 1 $ |
+| **8** | 3 $ |
 
-Les munition uniques sont les suivantes:
-- Cartouche de shotgun
-- Balle longue portée
-- Carreau
-- flèche
+**Munitions uniques :** Cartouche de shotgun, Balle longue portée, Carreau, Flèche.
 
-En combat
 ---
+
+## En combat
 
 ### Ordre des tours
 
-Il y a 2 camps, celui des ennemis et celui des alliés. 
-
-Le DM et un des joueurs lance chacun un dé. Le camps allié commence si le résultat du dé du joueur est supérieur à celui du DM, sinon le camps ennemi commence. En cas d'égalité, on recommence ce processus.
-
-Chaque camps choisi l'ordre des tours de tous les membres du camps. Les joueurs doivent unanimement être d'accord sur l'ordre décidé. Selon l'ordre établi des joueurs, les joueurs effectue leur tour dans cet ordre un à la suite de l'autre.
-
-Pour le camps d'ennemi, c'est à la discrétion du DM.
+1. Il y a deux camps : **Alliés** et **Ennemis**.
+2. Le DM et un joueur lancent chacun un dé. Le camp le plus élevé commence (en cas d'égalité, relancer).
+3. Chaque camp choisit l'ordre des tours de ses membres (accord unanime des joueurs requis ; à la discrétion du DM pour les ennemis). Les joueurs agissent dans l'ordre établi, un à la suite de l'autre.
 
 ### Phase de début de tour
 
-- Le joueur regagne son maximum de points d'action
-- Le joueur regagne son maximum de points mouvement
-- Le joueur désengage ses armes engagées
+- Regagne le maximum de **points d'action**.
+- Regagne le maximum de **points de mouvement**.
+- **Désengage** ses armes engagées.
 
-### Actions
-
-Une action coûte un point d'action pour être effectuée par un joueur. Voici les actions possible en combat.
+### Actions (1 point d'action par action)
 
 #### 1. Attaquer
+- Engage une arme équipée ou donne un coup de poing avec une main vide.
+- Cible un ennemi à portée et effectue un **jet de précision** (1 jet par cible pour un explosif).
+- Si réussi, inflige les dégâts calculés. Si une arme à munition est utilisée, retire 1 munition immédiatement.
 
-Le joueur:
-- Engage une arme équipée ou donne un coups de poings avec une main vide
-- Cible un ennemi à portée
-- Effectue un jet de précision, 
-- Si le jet de précision est un succès, le joueur inflige les dégats calculés à la cible
-- Dans le cas où une arme avec munition est utilisé pour l'attaque, une munition est retirée de l'arme immédiatement
+##### Jet de précision (d20)
+- **Succès :** Résultat compris entre 20 - (Précision du joueur) et 20.
+- **1 naturel :** Toujours un échec.
+- **20 naturel :** Toujours un succès et un **coup critique**.
+- **Armes à distance :** Ne peuvent pas atteindre les cibles adjacentes (sauf exception).
+- **Arme de corps à corps :** Précision accrue de + 2.
 
-##### Jet de précision
+##### Portée (*Range*) et *Over range*
 
-Un jet de précision nécessite de lancer un dé 20.
+| Type / Arme | Portée standard | *Over range* |
+| :--- | :--- | :--- |
+| **Pistolet** | 5 cases | +1 case : précision nécessaire + 5 |
+| **Shotgun** | 2 cases *(peut être utilisé en mêlée / cohésion)* | +2 cases : précision nécessaire + 8 |
+| **Mêlée** | 1 case | +3 cases : Impossible |
+| **Rifle** | 9 cases | — |
+| **Crossbow** | 6 cases | — |
+| **Scope** | Infinie | — |
+| **Lancer** | 4 cases + modificateur de Force | *Over range* ne s'applique pas |
 
-Un jet de précision est un succès si le résultat de dé est comprise entre \[ 20 - (Précision du joueur) \] et 20, sinon, le jet est un échec.
+##### Coup critique et dégâts
+- **Coup critique :** Double les dégâts infligés de l'attaque en cours.
 
-Un résultat de 1 au dé est toujours un échec.
-
-Un résultat de 20 est toujours un succès et un coup critique.
-
-Les attaques d'explosif nécessite un jet de précision par cible dans le rayon d'explosion.
-
-Les armes à distance ne peuvent pas atteindre les cibles adjacentes.
-
-Un armes de corps à corps a une précision accrue de 2.
-
-##### Adjacence
-
-Voici une grille qui montre les cases considérées adjacente à un joueur
-
-| # | # | # | # | # | # | # | # | # |
-|---|---|---|---|---|---|---|---|---|
-| # |   |   |   |   |   |   |   | # |
-| # |   |   | X | X | X |   |   | # |
-| # |   |   | X | O | X |   |   | # |
-| # |   |   | X | X | X |   |   | # |
-| # |   |   |   |   |   |   |   | # |
-| # | # | # | # | # | # | # | # | # |
-
-Légende
-\# : mur
-X : Case adjacente
-O : Un joueur
-
-##### Coup critique
-
-Un coup critique double les dégats infligé de l'attaque en cours.
-
-##### Dégats
-
-###### Arme au corps à corps
-
-Les dégats infligés d'une attaque de corps à corps sont calculés selon les formules suivante: \[ (Dégats de l'arme) + (STR // 3) \]
-
-Les dégats infligés par un coup de poing sont calculés selon les formules suivante: \[ (Dégats de l'arme) + (STR // 3) \]
-
-###### Arme à distance
-
-Les dégats infligés d'une attaque à distance sont calculés selon les formules suivante: \[ (Dégats de l'arme) + (AGI // 3) \]
-
-###### Explosifs 
-
-Un explosif lancé cause une explosion à l'impact au sol.
-
-Une explosion effectue une attaque explosive par cible contenue dans le rayon d'explosion de 2 cases par défaut.
-
-Les dégats infligés par un impact d'explosif sont calculés selon les formules suivante: \[ (Dégats de l'explosif) + (INT// 3) \]
+| Type d'attaque | Formule de dégâts | Notes |
+| :--- | :--- | :--- |
+| **Corps à corps** | Dégâts de l'arme + (STR // 3) | Toujours silencieuse. |
+| **Coup de poing** | Dégâts de l'arme + (STR // 3) | Main vide. |
+| **À distance** | Dégâts de l'arme + (AGI // 3) | Ne peut pas taper en mêlée. |
+| **Explosifs** | Dégâts de l'explosif + (INT // 3) | Rayon d'explosion par défaut : 2 cases à l'impact au sol. |
 
 ##### Aggro
-
-Un joueur gagne le status d'aggro lorsqu'une des situations suivantes se produit:
-- Le joueur attaque avec une arme (non silencieuse)
-- Le joueur attaque en étant engagé
-- Le joueur se déplace de 3 cases ou plus
+Un joueur gagne le statut d'**aggro** si :
+- Il attaque avec une arme (non silencieuse).
+- Il attaque en étant engagé.
+- Il se déplace de **3 cases ou plus**.
 
 Un ennemi est forcé d'attaquer uniquement les joueurs ayant l'aggro s'il y en a.
 
 #### 2. Recharger
-
-Le joueur:
-- Retire le chargeur d'une arme équipées
-- Place un nouveau chargeur dans cet arme
-
-ou
-
-Le joueur:
-- Rempli un chargeur de son inventaire de \[ 2 + LCK // 4 \] balles ou jusqu'à ce que le chargeur soit plein
-- Place le chargeur dans l'arme si aucun chargeur n'est présent dans l'arme
-
-ou
-
-Le joueur:
-- Rempli une arme équipées de \[ 2 + LCK // 4 \] munitions ou jusqu'à ce que l'arme soit pleine
+- Retire le chargeur d'une arme équipée et place un nouveau chargeur dans cette arme ; **ou**
+- Remplit un chargeur de son inventaire de 2 + (LCK // 4) balles (jusqu'à ce qu'il soit plein) et le place dans l'arme si aucun chargeur n'y est présent ; **ou**
+- Remplit une arme équipée de 2 + (LCK // 4) munitions (jusqu'à ce qu'elle soit pleine).
 
 #### 3. Se déplacer
+- Dépense jusqu'à son maximum de points de mouvement et se déplace d'autant de cases.
 
-Le joueur:
-- Dépense jusqu'à son maximum de points de mouvements
-- Se déplace d'un nombre de cases égal au nombre de points de mouvement dépensés
+#### 4. Équiper une arme ou un objet
+- Prend un objet de son inventaire et le place dans une main vide disponible (désengage l'arme le cas échéant).
 
-#### 4. Équiper une arme ou objet
-
-Le joueur:
-- Prend un objet de son inventaire et la place dans une main vide disponible 
-- Dans le cas d'une arme, désengage l'arme
-
-#### 5. Déséquiper une arme ou objet
-
-Le joueur:
-- Place un objet équipé depuis une main dans l'inventaire
+#### 5. Déséquiper une arme ou un objet
+- Place un objet équipé d'une main vers l'inventaire.
 
 #### 6. Consommer un objet
-
-Le joueur:
-- Retirer un objet de l'inventaire
-- Effectuer l'effet inscrit sur l'objet
-
-Le joueur:
-- Retirer un objet de l'inventaire
-- Un allié adjacent effectue l'effet inscrit sur l'objet
+- Retire l'objet de l'inventaire et applique son effet sur soi ou sur un allié adjacent.
 
 #### 7. Se désengager
-
-Le joueur:
-- Lance un dé 20
-- Se désengage des ennemis adjacent, si le résultat est supplémentaires à \[ 10 - END // 3 \]
-
-
-##### Engagement d'un ennemi
-
-Un joueur ou ennemi qui attaque et est adjacent à une cible est dit engagé. Lorsqu'un ennemi est engagé à un joueur, ce joueur ne peut plus bouger tant qu'il est engagé par l'ennemi.
+- Lance un **d20** : se désengage des ennemis adjacents si le résultat est supérieur à 10 - (END // 3).
+- *Engagement :* Un joueur ou ennemi qui attaque et est adjacent à une cible est **engagé**. Un joueur engagé par un ennemi ne peut plus bouger tant qu'il est engagé par cet ennemi.
 
 #### 8. Stabiliser un allié
-
-Le joueur:
-- Relève un allié tombé au combat
-- Donne un point de vie
+- Relève un allié tombé au combat et lui donne 1 point de vie.
 
 #### 9. Donner un objet
-
-
-#### 7. Se désengager
-
-Le joueur:
-- Lance un dé 20
-- Se désengage des ennemis adjacent, si le résultat est supplémentaires à \[ 10 - END // 3 \]
-
-
-##### Engagement d'un ennemi
-
-Un joueur ou ennemi qui attaque et est adjacent à une cible est dit engagé. Lorsqu'un ennemi est engagé à un joueur, ce joueur ne peut plus bouger tant qu'il est engagé par l'ennemi.
-
-#### 8. Stabiliser un allié
-
-Le joueur:
-- Relève un allié tombé au combat
-- Donne un point de vie
-
-#### 9. Donner un objet
-
-Le joueur:
-- Donne un objet à un joueur adjacent de l'inventaire ou équipé
-- Place l'objet dans l'inventaire de l'allié ciblé
+- Donne un objet de l'inventaire ou équipé à un joueur adjacent (placé dans l'inventaire de la cible).
 
 #### 10. Prendre un objet
-
-Le joueur:
-- Prend l'objet d'un allié adjacent de son inventaire ou équipé (nécessite le consentement de l'allié)
-- Place l'objet dans l'inventaire du joueur ou dans une main vide (l'objet est désengagé)
+- Prend un objet de l'inventaire ou équipé d'un allié adjacent (avec son consentement) et le place dans l'inventaire ou une main vide (désengagé).
 
 #### 11. Lancer un objet
-
-Le joueur:
-- Lance un objet équipé a une portée de 4 cases.
-
-##### Consomable lancé
-
-Si un consommable est lancé et la cible est un allié. Ce dernier gagne directement les effets du consommable lancé.
+- Lance un objet équipé à une portée de 4 cases. Si c'est un consommable lancé sur un allié, celui-ci gagne directement ses effets.
 
 #### 12. Perdre l'aggro
+- Fait perdre le statut d'aggro au joueur.
 
-Le joueur:
-- perd le statut d'aggro
+#### 13. Action contextuelle
+- Action créative à la discrétion du DM.
 
-#### 13. Action contextuel
+---
 
-Un joueur peut faire une action contextuel créative à la discrétion du DM. 
+## Butin (*Loot*)
 
+### Conteneurs (d20)
 
-destabiliser une ennemi: inflige 1 degat de moins, 1 point de mouvement de moins, precision de moins.
+| d20 | Conteneur commun | Conteneur peu commun (*uncommon*) |
+| :---: | :--- | :--- |
+| **01–02** | Rien | Rien |
+| **03–04** | 1 x Shell | 5 x Shell |
+| **05–06** | 1 x Long ammo | 5 x Long ammo |
+| **07–08** | 2 x Balles | 10 x Balles |
+| **09–10** | Ammo pack au choix | 5 x Ammo packs au choix |
+| **11–12** | Medkit | 2 x Medkits |
+| **13–14** | 2 x Shell | 10 x Shell |
+| **15–16** | 2 $ | 10 $ |
+| **17–18** | 1 x Carreau ou flèche | 5 x Carreaux ou flèches |
+| **19–20** | Objet commun | Objet peu commun (*uncommon*) |
 
-Range:
-Précision standard:
-Pistolet : 5 cases
-Shotgun : 2 cases (dmg range, mais peut etre utiliser en melee/cohésion)
-Melee : 1 case
-Rifle : 9 cases
-Crossbow : 6 cases
-Scope : Infini cases
-Lancer : 4 case + Force modifier - Over range ne s'applique pas
-Over range :
-+1 case : Précision nécessaire + 5
-+2 cases : Précision nécessaire + 8
-+3 : Impossible
+### Ennemis (d20)
 
-
-
-Vente d'objets
-(Cout de l'objet / 2)
-
-Level up
-Gagne 5 pts de caractéristique
-
-Combat
-
- Règle implicite:
-2 joueurs ne peuvent pas occupé la même espace
-Les joueurs peuvent tiré a traver les autres joueur, mais pas les ennemies
-Si un joueur tire un ennemi qui est en cohésion avec un allié, + 5 de précision nécessaire
-Lorsqu'un joueur perd tout ses point de vie, il tombe en état critique. Le joueur doit lancer x > 15 pour se relever. Un allié stabilisé revient avec 1 pts de vie (3 chances, 1 par tour)
-
-Loot
-Container commun:
-01-02 : Rien
-03-04 : 1 x shell
-05-06 : 1 x long ammo
-07-08 : 2 x balles
-09-10 : Ammo pack au choix
-11-12 : medkit
-13-14 : 2 x shell
-15-16 : 2$
-17-18 : 1 x Carreau ou fleche
-19-20 : Objet commun
-
-Container uncommun:
-01-02 : Rien
-03-04 : 5 x shell
-05-06 : 5 x long ammo
-07-08 : 10 x balles
-09-10 : 5 x Ammo pack au choix
-11-12 : 2 x medkit
-13-14 : 10 x shell
-15-16 : 10$
-17-18 : 5 x Carreau ou fleche
-19-20 : Objet uncommun
-
-=============================================
-
-Ennemi commun (1 dé par ennemi) :
-01-02 : 1 x balle
-03-04 : 2 x balles + 1$
-05-06 : 3 x balles + 2$
-07-08 : 1 balles + 1$
-09-10 : Ammo pack au choix
-11-12 : medkit
-13-14 : 1 x Long ammo + 1$
-15-16 : 1 x Carreau ou fleche
-17-18 : Objet commun
-19-20 : Objet uncommun
-
-Ennemi uncommun (chaque joueur lance 1 dé) :
-01-02 : 5 x balle + 3$
-03-04 : 6 x balles + 4$
-05-06 : 7 x balles + 5$
-07-08 : 3 balles + 4$
-09-10 : 3 x Ammo pack au choix + 4$
-11-12 : 10 $
-13-14 : 3 x Long ammo + 1$
-15-16 : 4 x Carreau ou fleche + 3$
-17-18 : Objet uncommun + 10$
-19-20 : Objet rare + 15$
-
-a faire dans le document:
-attaque melee toujours silencieuse
-arme range peut pas taper en melee
-informant donne pas plus quun buff par joueur
-ne pas oublier de balance les prix
-lexique engager arme = tap la carte de larme
-une arme equipee par main
-
-idees:
-archetype pour shotgun
-ne pas oublier de balance les prix
+| d20 | Ennemi commun (1 dé par ennemi) | Ennemi peu commun (chaque joueur lance 1 dé) |
+| :---: | :--- | :--- |
+| **01–02** | 1 x Balle | 5 x Balles + 3 $ |
+| **03–04** | 2 x Balles + 1 $ | 6 x Balles + 4 $ |
+| **05–06** | 3 x Balles + 2 $ | 7 x Balles + 5 $ |
+| **07–08** | 1 Balle + 1 $ | 3 Balles + 4 $ |
+| **09–10** | Ammo pack au choix | 3 x Ammo packs au choix + 4 $ |
+| **11–12** | Medkit | 10 $ |
+| **13–14** | 1 x Long ammo + 1 $ | 3 x Long ammo + 1 $ |
+| **15–16** | 1 x Carreau ou flèche | 4 x Carreaux ou flèches + 3 $ |
+| **17–18** | Objet commun | Objet peu commun + 10 $ |
+| **19–20** | Objet peu commun | Objet rare + 15 $ |
 
 À tout moment, un joueur est en droit de lire les règles du jeu, même au risque de "casser la vibe", sauf si son \[ INT \] est strictement inférieur 0. Le cas échéant, les capacités cognitives du joueur ne lui permettent pas de comprendre les règles du jeu.
