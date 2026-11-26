@@ -37,7 +37,7 @@ Le tableau suivant indique la valeur maximale de base pour chacune des statistiq
 
 | Statistique          | Valeur |
 |----------------------|--------|
-| Points de vie        | 10     |
+| Points de vie        | 30     |
 | Points d'action      | 3      |
 | Relances             | 1      |
 | Points de mouvement  | 3      |
@@ -104,7 +104,9 @@ L'action spéciale:
 Le boxeur doit avoir les deux mains vide pour pouvoir utiliser son action spéciale.
 
 L'action spéciale:
-- Attaque une même cible jusqu'à \[4 + STR // 4\] fois ou jusqu'à ce que le chargeur soit vide. Chaque attaque faite réduit la précision du boxeur de 1 pour toutes les attaques subséquentes durant cette action spéciale 
+- Attaque une même cible, avec une précision réduite de 2, jusqu'à ce qu'une des condition suivante soit vérifiée:
+    - \[ 2 + STR // 2 \] attaques ont été faites
+    - un attaque subséquente soit manquée (i.e. une attaque faite après la toute première est une attaque subséquente)
 
 ##### Brawler
 
@@ -114,8 +116,9 @@ L'action spéciale:
 ##### Bully
 
 L'action spéciale:
-- Rend 1 + (CHR // 6) cibles pacifique et immobile dans un rayon de 1 + (CHR // 2) cases jusqu'au prochain tour du bully. Les alliés dans un rayon de 1 + (CHR // 3) cases augmentent leur précision de 1 + (CHR // 4) contre les cibles ennemis atteintes par l'action spéciale du bully.
+- Rend 1 + (CHR // 6) cibles immobile dans un rayon de 1 + (CHR // 2) cases jusqu'au prochain tour du bully. Les alliés dans un rayon de 1 + (CHR // 3) cases augmentent leur précision de 1 + (CHR // 4) contre les cibles ennemis atteintes par l'action spéciale du bully.
 
+(Rappel: Une cible ennemi ne peut être immobilisé qu'une seule fois par combat. Les immobilisations subséquentes sur une même cible la rende déstabilisée à la place) 
 
 ##### Card Dealer
 
@@ -132,10 +135,13 @@ Le card dealer n'a pas d'action spéciale. À la place, au début de son tour, l
 
 ##### Cowboy
 
-Le cowboy doit avoir une main vide et une main équipée d'un arme avec barillet pour pouvoir utiliser son action spéciale.
+Le cowboy doit avoir une main vide et une main équipée d'un arme avec un barillet pour pouvoir utiliser son action spéciale.
 
 L'action spéciale:
-- Attaque une même cible jusqu'à \[4 + AGI // 4\] fois ou jusqu'à ce que le chargeur soit vide. Chaque attaque faite réduit la précision du boxeur de 1 pour toutes les attaques subséquentes dans ce barillet
+- Attaque une même cible, avec une précision réduite de 2, jusqu'à ce qu'une des condition suivante soit vérifiée:
+    - \[ 2 + AGI // 2 \] attaques ont été faites
+    - un attaque subséquente soit manquée (i.e. une attaque faite après la toute première est une attaque subséquente)
+    - jusqu'à ce que le barillet soit vide
 
 ##### Hitman 
 
@@ -144,7 +150,7 @@ L'action spéciale:
 
 ou
 
-- Attaque avec chacune des armes équipées 
+- Attaque avec chacune des armes équipées sans engager les armes utilisées. 
 
 ##### Leader
 
@@ -232,7 +238,7 @@ Les attaques à 5 case de distance ou plus on 2 + (PER // 3) de precision et ren
 
 ##### Rocket Scientist
 
-Augmente le rayon d'impact des explosifs de 1 + (INT // 4). Le joueurs et tous les alliés sont immunisés au explosifs durant le tour du joueur. Lorsque le joueur obtient un ou des explosifs, le joueur en reçoit le double à la place.
+Augmente le rayon d'impact des explosifs de \[ INT // 6 \]. Le joueurs et tous les alliés sont immunisés au explosifs durant le tour du joueur. Lorsque le joueur obtient un ou des explosifs, le joueur en reçoit le double à la place.
 
 ##### Short Sighted
 
@@ -248,11 +254,11 @@ Les bonus obtenus par les boissons et drogues consommés ou offert à un allié 
 
 ##### Overconfident
 
-Permet de porter n'importe quel arme dans une seule main. si l'arme nécessite 2 main normalement, la précision de l'arme est réduite de 5 - (PER // 4).
+Permet de porter n'importe quel arme dans une seule main. si l'arme nécessite 2 main normalement, la précision de l'arme est réduite de 3 - (PER // 4).
 
 ##### Skillful
 
-Lorsqu'un joueur attaque avec deux types d'armes différentes dans un même tour (Pour rappel, les types d'armes sont: corps à corps, à distance et explosifs), le joueur obtient une action supplémentaire ce tour-ci et le joueur inflige 1 + (LCK // 3) dégats supplémentaire sur la prochaine attaque du type encore inutilisé. 
+Lorsqu'un joueur attaque avec une arme , le joueur inflige 1 + (LCK // 3) dégats supplémentaire sur sa prochaine attaque avec un type d'arme encore inutilisé (Pour rappel, les types d'armes sont: corps à corps, à distance et explosifs). Le joueur peut ensuite, au coût d'une action, déséquiper une arme en main pour equiper une autre arme ou un explosif du dernier type inutilisé ce tour-ci. 
 
 ##### Clumsy 
 
@@ -260,7 +266,7 @@ Lorsqu'un jet de dé cause le joueur à raté la cible. Si le résultat du dé e
 
 ##### Sleight of Hands 
 
-Il est possible pour le joueur de déséquiper et équiper une arme pour une action au lieu de 2.
+Il est possible pour le joueur de déséquiper et équiper une arme pour une action au lieu de 2. Une fois par tour, le joueur peut, au coût d'une action, faire 2 actions de recharge immédiatement.
 
 ##### Informant
 
@@ -305,37 +311,106 @@ Le résultat minimal nécessaire du dé est reduit selon les points investi d'un
 
 ### Repos
 
+Durant un repos, un joueur peut faire toute les options suivantes:
+- Faire une action de fouille
+- Remplir tous ces chargeurs et barillets de ses armes
+- Équiper et déséquiper n'importe quel combinaison d'armes autant de fois qu'il le souhaite.
+- Faire une action de fouille
+
+
+Les deux seuls types de repos sont les suivants.
+
 ##### Repos court
 
-Les joueurs peuvent décider de faire un repos court si le DM le permet. Chaque joueur regagne 
+Les joueurs peuvent décider de faire un repos court si le DM le permet. Chaque joueur restaure le tiers (arrondi à l'entier supérieur) de ses points de vie. Il n'est possible de faire de repos court qu'après un combat et il n'est pas possible de faire plus d'un repos court entre 2 combats.
+
+Chaque joueur peut faire une action de fouille s'il le souhaite.
+
+Un repos long permet uniquement l'échange d'objets consommable entre joueurs (de manière illimité).
 
 ##### Repos long
 
-Short rest : Récupère 3 pts de vie (Repos court seulement disponible 1 fois après combat)
-Long rest : Récupère 10 pts de vie (Repos long seulement disponible au motel)
+Chaque joueur restaure tous ses points de vie. Il est seulement possible de faire de repos long que dans certains endroits déterminés par le DM (dans un motel par exemple).
 
- Une fois par repos court:
-Rummage: Permet de découvrir des objets communs (balles, medkit, etc.) si caisses, boites, etc. proches
-01-02 : 1 x balle
-03-04 : 2 x balles
-05-06 : 3 x balles
-07-08 : 1 x Shell
-09-10 : ammo pack
-11-12 : medkit
-13-14 : 1 x Long ammo
-15-16 : 1 x Carreau ou fleche
-17-18 : 1 dollar
-19-20 : 3 dollar
-Échange entre joueur
- Une fois par repos long:
-Permet de recharger toutes ses arme et clips
-Changer ses équipements
+Un repos long permet l'échange libre d'objets entre joueur.
 
-Type de damage:
-Piercing (balle, lance, etc.)
-Bludgeoning (Baton, crowbar, etc.)
-Slashing ( couteau, machete, etc. )
-Impact (explosifs)
+### Fouiller
+
+Une fouille permet de recherche des objets dans les parages. Un dé 10 doit être lancé et en fonction du résultat du dé, les objets ci-dessous sont ajoutés à l'inventaire.
+
+| Résultat | Objets obtenus      |
+|----------|---------------------|
+| 1        | 2 Balles standards  |
+| 2        | 4 Balles standards  |
+| 3        | 6 Balles standards  |
+| 4        | 2 Munition unique   |
+| 5        | 1 Medkit            |
+| 6        | 1 Bâton de dynamite |
+| 7        | 1$                  |
+| 8        | 3$                  |
+
+Les munition uniques sont les suivantes:
+- Cartouche de shotgun
+- Balle longue portée
+- Carreau
+- flèche
+
+En combat
+---
+
+### Ordre des tours
+
+Il y a 2 camps, celui des ennemis et celui des alliés. 
+
+Le DM et un des joueurs lance chacun un dé. Le camps allié commence si le résultat du dé du joueur est supérieur à celui du DM, sinon le camps ennemi commence. En cas d'égalité, on recommence ce processus.
+
+Chaque camps choisi l'ordre des tours de tous les membres du camps. Selon l'ordre décidé les joueurs 
+
+Lorsque c'est le tour du camps allié, les joueurs font les étapes suivantes jusqu'à ce que tout les joueurs est effectué exactement un tour:
+- Décider qui prend le prochain tour
+- Le joueur sélectionné effectue son tour
+
+
+### Phase de début de tour
+
+- Le joueur regagne son maximum de points d'action
+- Le joueur regagne son maximum de points mouvement
+- Le joueur désengage ses armes engagées
+
+### Actions
+
+Une action coûte un point d'action pour être effectuée. Voici les actions possible en combat.
+
+#### Attaquer
+
+- Engage une arme équipée
+- Cible un ennemi à portée
+- Inflige des dégats à la cible équivalent à la puissance de l'arme + le modificateur donné par les charactéristiques
+
+Attaquer : Utilise une arme équiper
+Coup de poings
+Tap l'arme
+Utilise le nombre d'action inscrit sur l'arme
+Jet de dé pour précision (s'applique au melee et range) = x > 13 pour succés (1 == Toujours raté) (20 == Double dmg)
+Recharger
+Si arme de type revolver : 2 + (LCK // 4) balles recharger = 1 action
+Cependant, le revolver peut utiliser 1 action pour choisir la balle dans le baril
+Si arme de type Colt : 1 clip = 1 action, Cependant :
+Si le clip est vide, 1 action = 2 + (LCK // 4) balle recharger dans le clip
+Bouger : permet d'utiliser tout sont mouvement ou partiellement
+Équiper ou déséquiper une arme
+Utiliser un objet de son sac (Utilise le nombre d'action inscrit sur l'objet)
+Sortir du melee/cohésion = x > 10 pour succès
+Stabiliser un allié (relève automatiquement un allié à 1 pts de vie)
+Échéanger des items avec un allié en cohésion
+Action contextuel ( incluant la créativité du joueur )
+perdre l'aggro
+desengager 1 fois par tour
+lancer un objet
+consommer un objet
+Faire consommer un objet en sa possession à un allié adjacent
+donner un objet a un allié adjacent
+prendre un objet a un allié adjacent
 
 Range:
 Précision standard:
@@ -356,8 +431,6 @@ Lorsqu'un personne bouge 2 case ou +, tire, attaque en melee ou est en cohésion
 Si une personne ne bouge pas ou 1 case max, tire pas, attaque pas en melee, n'est pas en cohésion avec un ennemi et n'est pas en vue, elle perd son token d'aggro
 Les ennemies vont favoriser les joueurs avec un token d'aggro pour ensuite aller vers les joueurs sans token si plus aucun joueur en a.
 
-Intiative
-Un joueur dans le combat (+ agilité) VS le DM lance un dé 20 et le plus haut commence le tour
 
 Cohésion
 Doit utiliser 1 action pour sortir de la cohésion  ; x > 10 pour succès
@@ -469,3 +542,11 @@ sleight of hand recharge plus
 informant pas plus quun buff par joueur
 la prochaine attaque silencieuse est double, silent
 melee plus de precision
+reload need luck
+ne pas oublier de balance les prix
+nat plus precision au melee
+consommer pour une action
+lexique engager, aggro
+range pas corps a corps
+
+À tout moment, un joueur est en droit de lire les règles du jeu, même au risque de "casser la vibe", sauf si son \[ INT \] est strictement inférieur 0. Le cas échéant, les capacités cognitives du joueur ne lui permettent pas de comprendre les règles du jeu.
