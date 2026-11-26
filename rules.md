@@ -36,10 +36,10 @@ Valeur maximale de base pour chacune des statistiques du joueur :
 
 ## Possessions de départ
 
-- **10 $**
+- **20 $**
 - **1 arme à distance** (au choix : Colt 45, Revolver)
 - **1 arme de mêlée** (au choix : Bâton, Couteau)
-- **2 chargeurs remplis** (6 balles chacun)
+- **3 chargeurs remplis** (6 balles chacun)
 - **1 Medkit**
 
 ---
@@ -341,32 +341,4 @@ Un ennemi est forcé d'attaquer uniquement les joueurs ayant l'aggro s'il y en a
 
 ## Butin (*Loot*)
 
-### Conteneurs (d20)
-
-| d20 | Conteneur commun | Conteneur peu commun (*uncommon*) |
-| :---: | :--- | :--- |
-| **01–02** | Rien | Rien |
-| **03–04** | 1 x Shell | 5 x Shell |
-| **05–06** | 1 x Long ammo | 5 x Long ammo |
-| **07–08** | 2 x Balles | 10 x Balles |
-| **09–10** | Ammo pack au choix | 5 x Ammo packs au choix |
-| **11–12** | Medkit | 2 x Medkits |
-| **13–14** | 2 x Shell | 10 x Shell |
-| **15–16** | 2 $ | 10 $ |
-| **17–18** | 1 x Carreau ou flèche | 5 x Carreaux ou flèches |
-| **19–20** | Objet commun | Objet peu commun (*uncommon*) |
-
-### Ennemis (d20)
-
-| d20 | Ennemi commun (1 dé par ennemi) | Ennemi peu commun (chaque joueur lance 1 dé) |
-| :---: | :--- | :--- |
-| **01–02** | 1 x Balle | 5 x Balles + 3 $ |
-| **03–04** | 2 x Balles + 1 $ | 6 x Balles + 4 $ |
-| **05–06** | 3 x Balles + 2 $ | 7 x Balles + 5 $ |
-| **07–08** | 1 Balle + 1 $ | 3 Balles + 4 $ |
-| **09–10** | Ammo pack au choix | 3 x Ammo packs au choix + 4 $ |
-| **11–12** | Medkit | 10 $ |
-| **13–14** | 1 x Long ammo + 1 $ | 3 x Long ammo + 1 $ |
-| **15–16** | 1 x Carreau ou flèche | 4 x Carreaux ou flèches + 3 $ |
-| **17–18** | Objet commun | Objet peu commun + 10 $ |
-| **19–20** | Objet peu commun | Objet rare + 15 $ |
+À la discrétion du DM à la fin d'un combat.
